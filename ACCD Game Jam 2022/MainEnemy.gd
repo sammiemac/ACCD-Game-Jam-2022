@@ -23,8 +23,10 @@ func _ready():
 		player = tree.get_nodes_in_group("Player")[0]
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player and level_navigation:
+#		rotation_degrees = get_angle_to(player.global_position)
+		look_at(player.global_position)
 		generate_path()
 		navigate()
 	move()
