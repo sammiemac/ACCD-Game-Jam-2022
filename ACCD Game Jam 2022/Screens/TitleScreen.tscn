@@ -1,0 +1,266 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Fonts/PixelMusketeer-vEXO.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.745098, 0.65098, 0.215686, 1 )
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 96
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 256
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 128
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 128
+font_data = ExtResource( 2 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.18921
+margin_right = 1.18921
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HowTo" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -800.0
+margin_top = -240.0
+margin_right = 800.0
+margin_bottom = 240.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HowToPlay" type="Label" parent="HowTo"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -800.0
+margin_right = 800.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+text = "HOW TO PLAY"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Move" type="Label" parent="HowTo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -121.531
+margin_right = 640.0
+margin_bottom = -10.5311
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+text = "Use WASD to 
+move your player."
+align = 1
+valign = 1
+
+[node name="Interact" type="Label" parent="HowTo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -352.0
+margin_top = 11.2652
+margin_right = 352.0
+margin_bottom = 122.265
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+text = "Use SPACEBAR to 
+interact with objects."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="HowTo"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -112.0
+margin_bottom = -42.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 0.231373, 0.121569, 0.0392157, 1 )
+custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+text = "BACK"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -800.0
+margin_top = -240.0
+margin_right = 800.0
+margin_bottom = 240.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="Credits"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -800.0
+margin_top = 128.0
+margin_right = 800.0
+margin_bottom = 235.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+text = "CREDITS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Move" type="Label" parent="Credits"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 54.0
+margin_top = -198.0
+margin_right = 564.0
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+text = "PROGRAMMING
+Ryan Lu
+Sam Macaraniag
+Kofi Quansah
+
+LEVEL DESIGN
+Kyle Shieh"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact" type="Label" parent="Credits"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -566.0
+margin_top = -198.0
+margin_right = -54.0001
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+text = "ART DESIGN
+Tiffany Book
+Jiahn Chung
+Sharon Cui
+
+SOUND DESIGN
+Devon Mamawag"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="Credits"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -246.929
+margin_bottom = -150.929
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 0.231373, 0.121569, 0.0392157, 1 )
+custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+text = "BACK"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -297.0
+margin_right = 297.0
+margin_bottom = 289.0
+custom_fonts/font = SubResource( 7 )
+text = "PLAY"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="howto" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -401.5
+margin_top = -74.0
+margin_right = 401.5
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 8 )
+text = "HOW TO PLAY"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="credits" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -245.0
+margin_top = -416.0
+margin_right = 245.0
+margin_bottom = -268.0
+custom_fonts/font = SubResource( 9 )
+text = "CREDITS"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
