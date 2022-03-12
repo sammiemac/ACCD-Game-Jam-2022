@@ -47,6 +47,13 @@ func generate_path():
 
 func move():
 	velocity = move_and_slide(velocity)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+func _on_EnemyHitbox_body_entered(body):
+	if body.is_in_group("Player"):
+		body.damage(position.x, position.y)
+		set_collision_mask_bit(0, false)
+
+
+func _on_Timer_timeout():
+	set_collision_mask_bit(0, true)

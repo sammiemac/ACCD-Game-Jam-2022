@@ -6,7 +6,7 @@
 [ext_resource path="res://Tiles/Ocean-Floor-2.png" type="Texture" id=4]
 [ext_resource path="res://Tiles/Ocean-Floor-6.png" type="Texture" id=5]
 [ext_resource path="res://Tiles/Ocean-Floor-5.png" type="Texture" id=6]
-[ext_resource path="res://Tiles/test_wall.png" type="Texture" id=7]
+[ext_resource path="res://Tiles/Ocean-Floor-14.png" type="Texture" id=7]
 [ext_resource path="res://Tiles/Ocean-Floor-10.png" type="Texture" id=8]
 [ext_resource path="res://Tiles/Ocean-Floor-12.png" type="Texture" id=9]
 [ext_resource path="res://Tiles/Ocean-Floor-11.png" type="Texture" id=10]
@@ -23,19 +23,22 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 vertices = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="NavigationPolygon" id=18]
+vertices = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="NavigationPolygon" id=19]
+vertices = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="NavigationPolygon" id=20]
+vertices = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=16]
 polygon = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
-[sub_resource type="OccluderPolygon2D" id=4]
-polygon = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
-
-[sub_resource type="OccluderPolygon2D" id=5]
-polygon = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
-
-[sub_resource type="OccluderPolygon2D" id=6]
-polygon = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=17]
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
 [sub_resource type="NavigationPolygon" id=8]
@@ -228,8 +231,8 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 10/region = Rect2( 0, 0, 320, 320 )
 10/tile_mode = 0
 10/occluder_offset = Vector2( 0, 0 )
-10/occluder = SubResource( 3 )
 10/navigation_offset = Vector2( 0, 0 )
+10/navigation = SubResource( 18 )
 10/shape_offset = Vector2( 0, 0 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 10/shape_one_way = false
@@ -243,8 +246,8 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 11/region = Rect2( 0, 0, 320, 320 )
 11/tile_mode = 0
 11/occluder_offset = Vector2( 0, 0 )
-11/occluder = SubResource( 4 )
 11/navigation_offset = Vector2( 0, 0 )
+11/navigation = SubResource( 19 )
 11/shape_offset = Vector2( 0, 0 )
 11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 11/shape_one_way = false
@@ -258,33 +261,33 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 12/region = Rect2( 0, 0, 320, 320 )
 12/tile_mode = 0
 12/occluder_offset = Vector2( 0, 0 )
-12/occluder = SubResource( 5 )
 12/navigation_offset = Vector2( 0, 0 )
+12/navigation = SubResource( 20 )
 12/shape_offset = Vector2( 0, 0 )
 12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 12/shape_one_way = false
 12/shape_one_way_margin = 0.0
 12/shapes = [  ]
 12/z_index = 0
-13/name = "test_wall.png 13"
+13/name = "Ocean-Floor-14.png 13"
 13/texture = ExtResource( 7 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 0, 0, 320, 320 )
 13/tile_mode = 0
 13/occluder_offset = Vector2( 0, 0 )
-13/occluder = SubResource( 6 )
+13/occluder = SubResource( 16 )
 13/navigation_offset = Vector2( 0, 0 )
 13/shape_offset = Vector2( 0, 0 )
 13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-13/shape = SubResource( 7 )
+13/shape = SubResource( 17 )
 13/shape_one_way = false
 13/shape_one_way_margin = 1.0
 13/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 17 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 13/z_index = 0
