@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/angler_entrance.png-cdbe19c0ef049fa163d3d76906fee012.stex"
+path="res://.import/diver_left_1.png-217b43d33056b212b703348f19fa0037.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/angler_entrance.png"
-dest_files=[ "res://.import/angler_entrance.png-cdbe19c0ef049fa163d3d76906fee012.stex" ]
+source_file="res://Player/diver_left_1.png"
+dest_files=[ "res://.import/diver_left_1.png-217b43d33056b212b703348f19fa0037.stex" ]
 
 [params]
 

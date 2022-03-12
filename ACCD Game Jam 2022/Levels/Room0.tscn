@@ -1,196 +1,19 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Tiles/Ocean-Floor2.png" type="Texture" id=1]
-[ext_resource path="res://Tiles/Ocean-Floor7.png" type="Texture" id=2]
-[ext_resource path="res://Tiles/Ocean-Floor8.png" type="Texture" id=3]
-[ext_resource path="res://Tiles/Ocean-Floor1.png" type="Texture" id=4]
-[ext_resource path="res://Tiles/Ocean-Floor4.png" type="Texture" id=5]
-[ext_resource path="res://Tiles/Ocean-Floor5.png" type="Texture" id=6]
-[ext_resource path="res://Tiles/Ocean-Floor6.png" type="Texture" id=7]
-[ext_resource path="res://Tiles/Ocean-Floor3.png" type="Texture" id=8]
-[ext_resource path="res://Tiles/Ocean-Floor9.png" type="Texture" id=9]
+[ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Fonts/PixelMusketeer-vEXO.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ocean_overlay.tres" type="Texture" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Plate/PressurePlate.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Levels/Lights.gd" type="Script" id=13]
-[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Levels/LightsPlates.gd" type="Script" id=13]
 [ext_resource path="res://Levels/Message.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Note.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Enemy/angler_entrance.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Lever/LightLever.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Levels/Room0.gd" type="Script" id=19]
 
-[sub_resource type="NavigationPolygon" id=4]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=5]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=6]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=7]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=8]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=9]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=10]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=11]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=12]
-vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="TileSet" id=3]
-0/name = "Ocean-Floor1.png 0"
-0/texture = ExtResource( 4 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 256, 256 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/navigation = SubResource( 4 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-1/name = "Ocean-Floor2.png 1"
-1/texture = ExtResource( 1 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 256, 256 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/navigation = SubResource( 5 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "Ocean-Floor3.png 2"
-2/texture = ExtResource( 8 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 256, 256 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/navigation = SubResource( 6 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-3/name = "Ocean-Floor4.png 3"
-3/texture = ExtResource( 5 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 0, 256, 256 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/navigation = SubResource( 7 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
-4/name = "Ocean-Floor5.png 4"
-4/texture = ExtResource( 6 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 0, 0, 256, 256 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/navigation = SubResource( 8 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
-4/z_index = 0
-5/name = "Ocean-Floor6.png 5"
-5/texture = ExtResource( 7 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 0, 0, 256, 256 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/navigation = SubResource( 9 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape_one_way = false
-5/shape_one_way_margin = 0.0
-5/shapes = [  ]
-5/z_index = 0
-6/name = "Ocean-Floor7.png 6"
-6/texture = ExtResource( 2 )
-6/tex_offset = Vector2( 0, 0 )
-6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 0, 0, 256, 256 )
-6/tile_mode = 0
-6/occluder_offset = Vector2( 0, 0 )
-6/navigation_offset = Vector2( 0, 0 )
-6/navigation = SubResource( 10 )
-6/shape_offset = Vector2( 0, 0 )
-6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape_one_way = false
-6/shape_one_way_margin = 0.0
-6/shapes = [  ]
-6/z_index = 0
-7/name = "Ocean-Floor8.png 7"
-7/texture = ExtResource( 3 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 0, 0, 256, 256 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/navigation = SubResource( 11 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape_one_way = false
-7/shape_one_way_margin = 0.0
-7/shapes = [  ]
-7/z_index = 0
-8/name = "Ocean-Floor9.png 8"
-8/texture = ExtResource( 9 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 0, 0, 256, 256 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/navigation = SubResource( 12 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape_one_way = false
-8/shape_one_way_margin = 0.0
-8/shapes = [  ]
-8/z_index = 0
-
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.729412, 0.6, 0.180392, 1 )
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -200,43 +23,112 @@ shadow_color = Color( 0.611765, 0.45098, 0.14902, 0.6 )
 shadow_size = 1
 shadow_offset = Vector2( 16, 16 )
 
-[sub_resource type="Theme" id=14]
-Panel/styles/panel = SubResource( 13 )
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=15]
-size = 40
+[sub_resource type="DynamicFont" id=3]
+size = 52
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 14 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="TileSet" id=4]
+0/name = "ocean_overlay.tres 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Room0" type="Node2D"]
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="LightsOff" type="CanvasModulate" parent="."]
+color = Color( 0.0235294, 0.0313726, 0.027451, 1 )
+
+[node name="LightsOn" type="CanvasModulate" parent="."]
 visible = false
-color = Color( 0.0352941, 0.0235294, 0.0666667, 1 )
+color = Color( 0.721569, 0.905882, 0.894118, 1 )
 
 [node name="LevelNavigation" type="Navigation2D" parent="." groups=[
 "LevelNavigation",
 ]]
 
 [node name="TileFloor" type="TileMap" parent="LevelNavigation"]
-tile_set = SubResource( 3 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 256, 256 )
 format = 1
 tile_data = PoolIntArray( 0, -1610612732, 0, 1, -1610612735, 0, 2, -1610612730, 0, 65536, -1610612729, 0, 65537, -1610612736, 0, 65538, -1610612728, 0, 131072, -1610612729, 0, 131073, -1610612736, 0, 131074, -1610612728, 0, 196608, -1610612729, 0, 196609, -1610612736, 0, 196610, -1610612728, 0, 262144, -1610612729, 0, 262145, -1610612736, 0, 262146, -1610612728, 0, 327680, -1610612729, 0, 327681, -1610612736, 0, 327682, -1610612728, 0, 393216, -1610612729, 0, 393217, -1610612736, 0, 393218, -1610612728, 0, 458752, -1610612729, 0, 458753, -1610612736, 0, 458754, -1610612728, 0, 524288, -1610612729, 0, 524289, -1610612736, 0, 524290, -1610612728, 0, 589824, -1610612729, 0, 589825, -1610612736, 0, 589826, -1610612728, 0, 655360, -1610612729, 0, 655361, -1610612736, 0, 655362, -1610612728, 0, 720896, -1610612733, 0, 720897, -1610612734, 0, 720898, -1610612731, 0 )
 
-[node name="Plates" type="Node2D" parent="."]
+[node name="LightsPlates" type="Node2D" parent="."]
+script = ExtResource( 13 )
 
-[node name="PressurePlate" parent="Plates" instance=ExtResource( 12 )]
-position = Vector2( 388, 2209.14 )
-scale = Vector2( 2, 2 )
+[node name="Plates" type="Node2D" parent="LightsPlates"]
+
+[node name="PressurePlate" parent="LightsPlates/Plates" instance=ExtResource( 12 )]
+position = Vector2( 372.285, 2195.67 )
+
+[node name="Timer1" type="Timer" parent="LightsPlates"]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LightsPlates"]
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="LightsPlates"]
+one_shot = true
+
+[node name="Timer4" type="Timer" parent="LightsPlates"]
+one_shot = true
+
+[node name="Lights1" type="Node2D" parent="LightsPlates"]
+visible = false
+
+[node name="Light11" parent="LightsPlates/Lights1" instance=ExtResource( 11 )]
+position = Vector2( 0, 2048 )
+
+[node name="Light12" parent="LightsPlates/Lights1" instance=ExtResource( 11 )]
+position = Vector2( 768, 2048 )
+
+[node name="Lights2" type="Node2D" parent="LightsPlates"]
+visible = false
+
+[node name="Light21" parent="LightsPlates/Lights2" instance=ExtResource( 11 )]
+position = Vector2( 0, 1536 )
+
+[node name="Light22" parent="LightsPlates/Lights2" instance=ExtResource( 11 )]
+position = Vector2( 768, 1536 )
+
+[node name="Lights3" type="Node2D" parent="LightsPlates"]
+visible = false
+
+[node name="Light31" parent="LightsPlates/Lights3" instance=ExtResource( 11 )]
+position = Vector2( 0, 1024 )
+
+[node name="Light32" parent="LightsPlates/Lights3" instance=ExtResource( 11 )]
+position = Vector2( 768, 1048 )
+
+[node name="Lights4" type="Node2D" parent="LightsPlates"]
+visible = false
+
+[node name="Light41" parent="LightsPlates/Lights4" instance=ExtResource( 11 )]
+position = Vector2( 0, 512 )
+
+[node name="Light42" parent="LightsPlates/Lights4" instance=ExtResource( 11 )]
+position = Vector2( 768, 512 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 384, 2816 )
-scale = Vector2( 16, 16 )
-player_speed = 160
+player_speed = 600
 
 [node name="PlayerCamera" type="Camera2D" parent="Player"]
 current = true
@@ -249,42 +141,35 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Lights0" type="Node2D" parent="."]
-script = ExtResource( 13 )
-
-[node name="Timer" type="Timer" parent="Lights0"]
-wait_time = 2.0
-one_shot = true
-
-[node name="Light1" parent="Lights0" instance=ExtResource( 11 )]
-position = Vector2( 0, 2048 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Light2" parent="Lights0" instance=ExtResource( 11 )]
-position = Vector2( 768, 2048 )
-scale = Vector2( 0.5, 0.5 )
-
 [node name="Message" type="CanvasLayer" parent="."]
 script = ExtResource( 15 )
 
 [node name="Panel" type="Panel" parent="Message"]
 visible = false
-margin_left = 256.0
-margin_top = 8.0
-margin_right = 768.0
-margin_bottom = 616.0
-theme = SubResource( 14 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -304.0
+margin_right = 256.0
+margin_bottom = 304.0
+theme = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Message/Panel"]
-margin_left = 41.0
-margin_top = 41.0
-margin_right = 479.0
-margin_bottom = 554.0
-custom_fonts/font = SubResource( 15 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -219.0
+margin_top = -273.0
+margin_right = 219.0
+margin_bottom = 273.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.34902, 0.231373, 0.0862745, 1 )
 text = "The STARS guide the way...
 
@@ -298,7 +183,26 @@ __meta__ = {
 
 [node name="Note" parent="." instance=ExtResource( 16 )]
 position = Vector2( 387.209, 2566.3 )
-[connection signal="plate_press" from="Plates/PressurePlate" to="Lights0" method="_on_PressurePlate_plate_press"]
-[connection signal="timeout" from="Lights0/Timer" to="Lights0" method="_on_Timer_timeout"]
+
+[node name="angler_entrance" type="Sprite" parent="."]
+position = Vector2( 385.011, 252.243 )
+texture = ExtResource( 17 )
+
+[node name="LightLever" parent="." instance=ExtResource( 18 )]
+position = Vector2( 360.451, 999.845 )
+rotation = -1.5708
+
+[node name="OceanOverlay" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
+tile_set = SubResource( 4 )
+cell_size = Vector2( 256, 256 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262158, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0 )
+[connection signal="plate_press" from="LightsPlates/Plates/PressurePlate" to="LightsPlates" method="_on_PressurePlate_plate_press"]
+[connection signal="timeout" from="LightsPlates/Timer1" to="LightsPlates" method="_on_Timer1_timeout"]
+[connection signal="timeout" from="LightsPlates/Timer2" to="LightsPlates" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="LightsPlates/Timer3" to="LightsPlates" method="_on_Timer3_timeout"]
+[connection signal="timeout" from="LightsPlates/Timer4" to="LightsPlates" method="_on_Timer4_timeout"]
 [connection signal="note_clear" from="Message" to="Note" method="_on_Message_note_clear"]
 [connection signal="note_collected" from="Note" to="Message" method="_on_Note_note_collected"]
+[connection signal="lever_on" from="LightLever" to="." method="_on_LightLever_lever_on"]
