@@ -1,11 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Test Assets/test_box.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Box.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 155.907 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 161, 161 )
 
-[node name="Box" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 159, 159 )
+
+[node name="Box" type="StaticBody2D"]
+collision_layer = 64
+collision_mask = 7
+script = ExtResource( 2 )
+
+[node name="BoxArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxArea"]
+shape = SubResource( 7 )
 
 [node name="BoxSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -13,20 +25,39 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Right" type="Area2D" parent="."]
+[node name="BoxCollision" type="CollisionShape2D" parent="." groups=[
+"Box",
+]]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="RightCollision" type="CollisionShape2D" parent="Right"]
-position = Vector2( -173.061, -4.1058 )
-shape = SubResource( 1 )
+[node name="RayRight" type="RayCast2D" parent="."]
+position = Vector2( 161, 0 )
+enabled = true
+cast_to = Vector2( 2, 0 )
+collision_mask = 67
+collide_with_areas = true
 
-[node name="Left" type="Area2D" parent="."]
+[node name="RayLeft" type="RayCast2D" parent="."]
+position = Vector2( -161, 0 )
+enabled = true
+cast_to = Vector2( -2, 0 )
+collision_mask = 67
+collide_with_areas = true
 
-[node name="LeftCollision" type="CollisionShape2D" parent="Left"]
+[node name="RayUp" type="RayCast2D" parent="."]
+position = Vector2( 0, -161 )
+enabled = true
+cast_to = Vector2( 0, -2 )
+collision_mask = 67
+collide_with_areas = true
 
-[node name="Up" type="Area2D" parent="."]
-
-[node name="UpColliision" type="CollisionShape2D" parent="Up"]
-
-[node name="Down" type="Area2D" parent="."]
-
-[node name="DownCollision" type="CollisionShape2D" parent="Down"]
+[node name="RayDown" type="RayCast2D" parent="."]
+position = Vector2( 0, 161 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 67
+collide_with_areas = true
+[connection signal="body_entered" from="BoxArea" to="." method="_on_BoxArea_body_entered"]

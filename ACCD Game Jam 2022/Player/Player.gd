@@ -6,6 +6,7 @@ export var player_speed = 10
 # Variable for player's velocity for movement
 var velocity
 enum Direction {UP, DOWN, LEFT, RIGHT}
+#onready var global = "res://GLOBAL.gd"
 var dir
 
 # On ready, turn off collision shapes
@@ -33,7 +34,10 @@ func get_input():
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 		dir = Direction.UP
-		
+	
+	# (Hopefully) Places player direction in global instance
+#	global.player_dir = dir
+	
 	# Movement animation
 	match dir:
 		Direction.RIGHT:				# RIGHT
