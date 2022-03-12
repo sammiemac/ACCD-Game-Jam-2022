@@ -96,6 +96,6 @@ __meta__ = {
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
-texture_scale = 0.01
-energy = 0.3
+texture_scale = 0.2
+energy = 0.5
 shadow_enabled = true
