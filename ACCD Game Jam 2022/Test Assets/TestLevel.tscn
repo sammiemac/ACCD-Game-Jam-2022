@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Spike/Spike.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Hearts/Health.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Test Assets/TestLevel.gd" type="Script" id=6]
-[ext_resource path="res://Test Assets/TileBox.gd" type="Script" id=7]
+[ext_resource path="res://Tiles/TileBox.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Tiles/TileWall.tres" type="TileSet" id=9]
 [ext_resource path="res://Assets/Box/BoxPhysics.tscn" type="PackedScene" id=10]
