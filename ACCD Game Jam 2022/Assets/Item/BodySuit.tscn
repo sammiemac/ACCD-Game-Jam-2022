@@ -17,4 +17,5 @@ animations = [ {
 [node name="BodySprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "float"
+frame = 3
 playing = true
