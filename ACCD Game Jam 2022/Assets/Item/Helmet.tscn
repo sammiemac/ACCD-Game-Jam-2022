@@ -16,7 +16,8 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 140.224
 
-[node name="Helmet" type="Node2D"]
+[node name="Helmet" type="Area2D"]
+collision_layer = 32
 script = ExtResource( 4 )
 
 [node name="HelmetSprite" type="AnimatedSprite" parent="."]
@@ -25,9 +26,6 @@ animation = "float"
 frame = 1
 playing = true
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

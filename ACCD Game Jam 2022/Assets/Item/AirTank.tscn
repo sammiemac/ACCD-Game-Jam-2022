@@ -17,19 +17,18 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 42.3502
 
-[node name="AirTank" type="Node2D"]
+[node name="AirTank" type="Area2D"]
+collision_layer = 32
 script = ExtResource( 5 )
 
 [node name="TankSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 4.09473, 0 )
 frames = SubResource( 1 )
 animation = "float"
-frame = 1
+frame = 4
 playing = true
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 54 )
 shape = SubResource( 2 )
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

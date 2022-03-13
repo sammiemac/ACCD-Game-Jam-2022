@@ -19,12 +19,12 @@ radius = 106.0
 height = 320.0
 
 [node name="Door" type="StaticBody2D"]
+collision_layer = 0
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "door_close"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

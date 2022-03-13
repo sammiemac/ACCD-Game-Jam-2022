@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Heart of the Sea (Credits Theme).wav-28d52bd7f8748a14ba7a6a6182e7db40.sample"
+
+[deps]
+
+source_file="res://Sounds/OST/Heart of the Sea (Credits Theme).wav"
+dest_files=[ "res://.import/Heart of the Sea (Credits Theme).wav-28d52bd7f8748a14ba7a6a6182e7db40.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

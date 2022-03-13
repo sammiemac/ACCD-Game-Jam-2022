@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 # Variable for the players speed that can be edited in the inspector
-export var player_speed = 1280
+export var player_speed = 1400
 var speed = player_speed
 #export var move_speed : = 750.0
 export var push_speed : = 325.0

@@ -1,41 +1,21 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/TutorialRoom.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=2]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=3]
 [ext_resource path="res://Tiles/Overlay.tres" type="TileSet" id=4]
 [ext_resource path="res://Tiles/front-door-arch-back.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Fonts/PixelMusketeer-vEXO.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Plate/TutorialPlates.gd" type="Script" id=7]
-[ext_resource path="res://Levels/Message.gd" type="Script" id=8]
-[ext_resource path="res://Assets/Note/Note.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Tiles/front-view-enterance.png" type="Texture" id=10]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Plate/LightPlate.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Note/notepaper.png" type="Texture" id=14]
+[ext_resource path="res://Sounds/OST/water_ambience.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/SFX/scene_transition.wav" type="AudioStream" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 168.223
 height = 86.0398
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.729412, 0.6, 0.180392, 1 )
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color( 0.611765, 0.45098, 0.14902, 0.6 )
-shadow_size = 1
-shadow_offset = Vector2( 16, 16 )
-
-[sub_resource type="Theme" id=3]
-Panel/styles/panel = SubResource( 2 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 36
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
 
 [node name="Room0" type="Node2D"]
 script = ExtResource( 1 )
@@ -62,7 +42,7 @@ texture = ExtResource( 5 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 320, 320 )
 format = 1
-tile_data = PoolIntArray( -262147, 55, 0, -262146, 55, 0, -262145, 29, 0, -327680, 21, 0, -327679, 21, 0, -327678, 21, 0, -327677, 21, 0, -327676, 22, 0, -327675, 55, 0, -327674, 55, 0, -196611, 55, 0, -196610, 55, 0, -196609, 26, 0, -262144, 24, 0, -262143, 56, 0, -262142, 56, 0, -262141, 24, 0, -262140, 28, 0, -262139, 55, 0, -262138, 55, 0, -131075, 55, 0, -131074, 55, 0, -131073, 26, 0, -196608, 17, 0, -196607, 56, 0, -196606, 56, 0, -196605, 17, 0, -196604, 28, 0, -196603, 55, 0, -196602, 55, 0, -65539, 55, 0, -65538, 55, 0, -65537, 26, 0, -131068, 28, 0, -131067, 55, 0, -131066, 55, 0, -3, 55, 0, -2, 55, 0, -1, 26, 0, -65532, 28, 0, -65531, 55, 0, -65530, 55, 0, 65533, 55, 0, 65534, 55, 0, 65535, 26, 0, 4, 28, 0, 5, 55, 0, 6, 55, 0, 131069, 55, 0, 131070, 55, 0, 131071, 26, 0, 65540, 28, 0, 65541, 55, 0, 65542, 55, 0, 196605, 55, 0, 196606, 55, 0, 196607, 26, 0, 131076, 28, 0, 131077, 55, 0, 131078, 55, 0, 262141, 55, 0, 262142, 55, 0, 262143, 26, 0, 196612, 28, 0, 196613, 55, 0, 196614, 55, 0, 327677, 55, 0, 327678, 55, 0, 327679, 26, 0, 262148, 28, 0, 262149, 55, 0, 262150, 55, 0, 393213, 55, 0, 393214, 55, 0, 393215, 26, 0, 327684, 28, 0, 327685, 55, 0, 327686, 55, 0, 458749, 55, 0, 458750, 55, 0, 458751, 26, 0, 393220, 28, 0, 393221, 55, 0, 393222, 55, 0, 524285, 55, 0, 524286, 55, 0, 524287, 26, 0, 458756, 28, 0, 458757, 55, 0, 458758, 55, 0, 589821, 55, 0, 589822, 55, 0, 589823, 26, 0, 524292, 28, 0, 524293, 55, 0, 524294, 55, 0, 655357, 55, 0, 655358, 55, 0, 655359, 26, 0, 589828, 28, 0, 589829, 55, 0, 589830, 55, 0, 720893, 55, 0, 720894, 55, 0, 720895, 33, 0, 655360, 39, 0, 655361, 40, 0, 655362, 40, 0, 655363, 41, 0, 655364, 35, 0, 655365, 55, 0, 655366, 55, 0, 786429, 55, 0, 786430, 55, 0, 786431, 55, 0, 720896, 42, 0, 720897, 43, 0, 720898, 43, 0, 720899, 44, 0, 720900, 55, 0, 720901, 55, 0, 720902, 55, 0, 851965, 55, 0, 851966, 55, 0, 851967, 55, 0, 786432, 55, 0, 786433, 55, 0, 786434, 55, 0, 786435, 55, 0, 786436, 55, 0, 786437, 55, 0, 786438, 55, 0 )
+tile_data = PoolIntArray( -262150, 55, 0, -262149, 55, 0, -262148, 55, 0, -262147, 55, 0, -262146, 55, 0, -262145, 29, 0, -327680, 21, 0, -327679, 21, 0, -327678, 21, 0, -327677, 21, 0, -327676, 22, 0, -327675, 55, 0, -327674, 55, 0, -327673, 55, 0, -327672, 55, 0, -327671, 55, 0, -196614, 55, 0, -196613, 55, 0, -196612, 55, 0, -196611, 55, 0, -196610, 55, 0, -196609, 26, 0, -262144, 24, 0, -262143, 56, 0, -262142, 56, 0, -262141, 24, 0, -262140, 28, 0, -262139, 55, 0, -262138, 55, 0, -262137, 55, 0, -262136, 55, 0, -262135, 55, 0, -131078, 55, 0, -131077, 55, 0, -131076, 55, 0, -131075, 55, 0, -131074, 55, 0, -131073, 26, 0, -196608, 17, 0, -196607, 56, 0, -196606, 56, 0, -196605, 17, 0, -196604, 28, 0, -196603, 55, 0, -196602, 55, 0, -196601, 55, 0, -196600, 55, 0, -196599, 55, 0, -65542, 55, 0, -65541, 55, 0, -65540, 55, 0, -65539, 55, 0, -65538, 55, 0, -65537, 26, 0, -131068, 28, 0, -131067, 55, 0, -131066, 55, 0, -131065, 55, 0, -131064, 55, 0, -131063, 55, 0, -6, 55, 0, -5, 55, 0, -4, 55, 0, -3, 55, 0, -2, 55, 0, -1, 26, 0, -65532, 28, 0, -65531, 55, 0, -65530, 55, 0, -65529, 55, 0, -65528, 55, 0, -65527, 55, 0, 65530, 55, 0, 65531, 55, 0, 65532, 55, 0, 65533, 55, 0, 65534, 55, 0, 65535, 26, 0, 4, 28, 0, 5, 55, 0, 6, 55, 0, 7, 55, 0, 8, 55, 0, 9, 55, 0, 131066, 55, 0, 131067, 55, 0, 131068, 55, 0, 131069, 55, 0, 131070, 55, 0, 131071, 26, 0, 65540, 28, 0, 65541, 55, 0, 65542, 55, 0, 65543, 55, 0, 65544, 55, 0, 65545, 55, 0, 196602, 55, 0, 196603, 55, 0, 196604, 55, 0, 196605, 55, 0, 196606, 55, 0, 196607, 26, 0, 131076, 28, 0, 131077, 55, 0, 131078, 55, 0, 131079, 55, 0, 131080, 55, 0, 131081, 55, 0, 262138, 55, 0, 262139, 55, 0, 262140, 55, 0, 262141, 55, 0, 262142, 55, 0, 262143, 26, 0, 196612, 28, 0, 196613, 55, 0, 196614, 55, 0, 196615, 55, 0, 196616, 55, 0, 196617, 55, 0, 327674, 55, 0, 327675, 55, 0, 327676, 55, 0, 327677, 55, 0, 327678, 55, 0, 327679, 26, 0, 262148, 28, 0, 262149, 55, 0, 262150, 55, 0, 262151, 55, 0, 262152, 55, 0, 262153, 55, 0, 393210, 55, 0, 393211, 55, 0, 393212, 55, 0, 393213, 55, 0, 393214, 55, 0, 393215, 26, 0, 327684, 28, 0, 327685, 55, 0, 327686, 55, 0, 327687, 55, 0, 327688, 55, 0, 327689, 55, 0, 458746, 55, 0, 458747, 55, 0, 458748, 55, 0, 458749, 55, 0, 458750, 55, 0, 458751, 26, 0, 393220, 28, 0, 393221, 55, 0, 393222, 55, 0, 393223, 55, 0, 393224, 55, 0, 393225, 55, 0, 524282, 55, 0, 524283, 55, 0, 524284, 55, 0, 524285, 55, 0, 524286, 55, 0, 524287, 26, 0, 458756, 28, 0, 458757, 55, 0, 458758, 55, 0, 458759, 55, 0, 458760, 55, 0, 458761, 55, 0, 589818, 55, 0, 589819, 55, 0, 589820, 55, 0, 589821, 55, 0, 589822, 55, 0, 589823, 26, 0, 524292, 28, 0, 524293, 55, 0, 524294, 55, 0, 524295, 55, 0, 524296, 55, 0, 524297, 55, 0, 655354, 55, 0, 655355, 55, 0, 655356, 55, 0, 655357, 55, 0, 655358, 55, 0, 655359, 26, 0, 589828, 28, 0, 589829, 55, 0, 589830, 55, 0, 589831, 55, 0, 589832, 55, 0, 589833, 55, 0, 720890, 55, 0, 720891, 55, 0, 720892, 55, 0, 720893, 55, 0, 720894, 55, 0, 720895, 33, 0, 655360, 39, 0, 655361, 40, 0, 655362, 40, 0, 655363, 41, 0, 655364, 35, 0, 655365, 55, 0, 655366, 55, 0, 655367, 55, 0, 655368, 55, 0, 655369, 55, 0, 786426, 55, 0, 786427, 55, 0, 786428, 55, 0, 786429, 55, 0, 786430, 55, 0, 786431, 55, 0, 720896, 42, 0, 720897, 43, 0, 720898, 43, 0, 720899, 44, 0, 720900, 55, 0, 720901, 55, 0, 720902, 55, 0, 720903, 55, 0, 720904, 55, 0, 720905, 55, 0, 851962, 55, 0, 851963, 55, 0, 851964, 55, 0, 851965, 55, 0, 851966, 55, 0, 851967, 55, 0, 786432, 55, 0, 786433, 55, 0, 786434, 55, 0, 786435, 55, 0, 786436, 55, 0, 786437, 55, 0, 786438, 55, 0, 786439, 55, 0, 786440, 55, 0, 786441, 55, 0 )
 
 [node name="LightsPlates" type="Node2D" parent="."]
 script = ExtResource( 7 )
@@ -138,6 +118,7 @@ position = Vector2( 1184, 320 )
 
 [node name="Tunnel" type="Area2D" parent="."]
 modulate = Color( 0.686275, 0.686275, 0.686275, 1 )
+collision_layer = 0
 
 [node name="Tunnel" type="Sprite" parent="Tunnel"]
 position = Vector2( 802.144, -1028.48 )
@@ -149,7 +130,7 @@ shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 position = Vector2( 640.648, 3680 )
-player_speed = 600
+player_speed = 200
 
 [node name="PlayerCamera" type="Camera2D" parent="Player"]
 current = true
@@ -171,51 +152,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Message" type="CanvasLayer" parent="."]
-script = ExtResource( 8 )
-
-[node name="Panel" type="TextureRect" parent="Message"]
-visible = false
-modulate = Color( 1, 0.831373, 0.509804, 1 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -560.0
-margin_top = -400.0
-margin_right = 560.0
-margin_bottom = 400.0
-theme = SubResource( 3 )
-texture = ExtResource( 14 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Message/Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -327.352
-margin_top = -223.621
-margin_right = 326.648
-margin_bottom = 214.379
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "March 12, 12:04
-
-The origins of this cave are fascinating! Strangely, standing on these STARS turns on these lanterns.
-
-I hope to learn more as I delve deeper!"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Note" parent="." instance=ExtResource( 9 )]
-position = Vector2( 648.648, 2752 )
-
 [node name="OceanOverlay" type="TileMap" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
@@ -226,14 +162,21 @@ tile_data = PoolIntArray( -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="SFXAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -5.0
+autoplay = true
+
+[node name="SFXTransition" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 [connection signal="plate_press" from="LightsPlates/Plates/PressurePlate" to="LightsPlates" method="_on_PressurePlate_plate_press"]
 [connection signal="timeout" from="LightsPlates/Timer1" to="LightsPlates" method="_on_Timer1_timeout"]
 [connection signal="timeout" from="LightsPlates/Timer2" to="LightsPlates" method="_on_Timer2_timeout"]
 [connection signal="timeout" from="LightsPlates/Timer3" to="LightsPlates" method="_on_Timer3_timeout"]
 [connection signal="timeout" from="LightsPlates/Timer4" to="LightsPlates" method="_on_Timer4_timeout"]
 [connection signal="body_entered" from="Tunnel" to="." method="_on_Tunnel_body_entered"]
-[connection signal="note_clear" from="Message" to="Note" method="_on_Message_note_clear"]
-[connection signal="note_collected" from="Note" to="Message" method="_on_Note_note_collected"]
+[connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

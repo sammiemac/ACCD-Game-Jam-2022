@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eye_spotted.wav-dad3c6ee96cf5facddd73e4d389e0aae.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/eye_spotted.wav"
+dest_files=[ "res://.import/eye_spotted.wav-dad3c6ee96cf5facddd73e4d389e0aae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

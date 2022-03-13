@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/PixelMusketeer-vEXO.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Screens/end_wip.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/OST/Heart of the Sea (Credits Theme).wav" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 1 )
+
+[node name="End" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -625.5
+margin_right = 625.5
+margin_bottom = 287.0
+custom_fonts/font = SubResource( 1 )
+text = "You were the 
+heart of my abyss..."
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -369.0
+margin_top = -178.51
+margin_right = 369.0
+margin_bottom = -36.5103
+custom_fonts/font = SubResource( 2 )
+text = "I love you..."
+align = 1
+valign = 1
+
+[node name="Msuci" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
+autoplay = true
