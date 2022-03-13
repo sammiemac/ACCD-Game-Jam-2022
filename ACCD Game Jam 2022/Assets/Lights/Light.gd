@@ -20,3 +20,4 @@ func turn_on():
 
 func _on_Timer_timeout():
 	$Light2D.visible = false
+

@@ -28,7 +28,7 @@ texture = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -84.4147, 32.758 )
 frames = SubResource( 1 )
-frame = 3
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true

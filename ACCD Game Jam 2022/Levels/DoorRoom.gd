@@ -17,7 +17,7 @@ func _process(delta):
 	if player_health == 1:
 		$HUD/Health/Heart2/Full.visible = false
 	# If the player's out of health, play blackout animation
-	if player_health <= 0:
+	if player_health == 0:
 		$HUD/Health/Heart1/Full.visible = false
 		$Player/Light2D.visible = false
 		$AnimationPlayer.play("blackout")
@@ -42,3 +42,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$AnimationPlayer.stop()
 #	get_tree().change_scene("res://Levels/MainRoom.tscn)
 	get_tree().change_scene("res://Levels/DoorRoom.tscn")
+
+
+func _on_B0_bas_press():
+	pass # Replace with function body.
