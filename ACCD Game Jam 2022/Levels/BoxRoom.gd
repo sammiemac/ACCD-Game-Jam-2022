@@ -1,16 +1,13 @@
 extends Node2D
 
 
+# Saves the health you had when you entered the room
 var starting_health = Global.health
-var player_health = Global.health
+# Sets the player health
+var player_health = starting_health
 
 
-# When entering scene, turn off enemy
-func _ready():
-	$MainEnemy.enemy_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Detects if the player has taken damage
 func _process(delta):
 	if player_health == 2:
 		$HUD/Health/Heart3/Full.visible = false
@@ -21,12 +18,6 @@ func _process(delta):
 		$HUD/Health/Heart1/Full.visible = false
 		$Player/Light2D.visible = false
 		$AnimationPlayer.play("blackout")
-
-
-# When player passes area, enemy will start chasing
-func _on_EnemyStart_body_exited(body):
-	if body.is_in_group("Player"):
-		$MainEnemy.enemy_on = true
 
 
 # Remove one heart every time the player takes damage
@@ -41,4 +32,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	player_health = Global.health
 	$AnimationPlayer.stop()
 #	get_tree().change_scene("res://Levels/MainRoom.tscn)
-	get_tree().change_scene("res://Levels/DoorRoom.tscn")
+	get_tree().change_scene("res://Levels/BoxRoom.tscn")
