@@ -75,6 +75,29 @@ position = Vector2( 9280, 3520 )
 rotation = -1.5708
 scale = Vector2( 2, 2 )
 
+[node name="TileWall" type="TileMap" parent="." groups=[
+"Wall",
+]]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 320, 320 )
+format = 1
+tile_data = PoolIntArray( 1048602, 55, 0, 1048603, 55, 0, 1114138, 55, 0, 1114139, 55, 0, 1179674, 55, 0, 1179675, 55, 0, 1245210, 55, 0, 1245211, 55, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GridBox" parent="TileWall" instance=ExtResource( 5 )]
+position = Vector2( 3840, 6400 )
+scale = Vector2( 2, 2 )
+
+[node name="GridBox2" parent="TileWall" instance=ExtResource( 5 )]
+position = Vector2( 8320, 640 )
+scale = Vector2( 2, 2 )
+
+[node name="GridBox3" parent="TileWall" instance=ExtResource( 5 )]
+position = Vector2( 3840, 4480 )
+scale = Vector2( 2, 2 )
+
 [node name="Spikes" type="Node2D" parent="."]
 
 [node name="Spike" parent="Spikes" instance=ExtResource( 12 )]
