@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Note.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Note/Note.gd" type="Script" id=1]
 [ext_resource path="res://Test Assets/test_note.png" type="Texture" id=2]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 63.9918, 64.2362 )

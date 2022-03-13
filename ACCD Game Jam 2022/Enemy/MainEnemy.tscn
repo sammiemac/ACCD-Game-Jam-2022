@@ -21,23 +21,37 @@ radius = 184.847
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 1 )
-enemy_speed = 500
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-rotation = -1.5708
+position = Vector2( 0, -160 )
 frames = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 72, 0 )
+position = Vector2( 0, -88 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EnemyHitbox" type="Area2D" parent="."]
+position = Vector2( 0, -160 )
+collision_layer = 4
+collision_mask = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
-position = Vector2( 72, 0 )
+position = Vector2( 0, 72 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 [connection signal="body_entered" from="EnemyHitbox" to="." method="_on_EnemyHitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
