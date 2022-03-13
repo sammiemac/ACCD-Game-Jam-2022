@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/TutorialRoom.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Plate/LightPlate.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Note/notepaper.png" type="Texture" id=14]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 168.223
@@ -32,7 +33,7 @@ shadow_offset = Vector2( 16, 16 )
 Panel/styles/panel = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 52
+size = 36
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
@@ -69,7 +70,7 @@ script = ExtResource( 7 )
 [node name="Plates" type="Node2D" parent="LightsPlates"]
 
 [node name="PressurePlate" parent="LightsPlates/Plates" instance=ExtResource( 12 )]
-position = Vector2( 640, 2752 )
+position = Vector2( 632.648, 2240 )
 
 [node name="Timer1" type="Timer" parent="LightsPlates"]
 one_shot = true
@@ -173,19 +174,21 @@ __meta__ = {
 [node name="Message" type="CanvasLayer" parent="."]
 script = ExtResource( 8 )
 
-[node name="Panel" type="Panel" parent="Message"]
+[node name="Panel" type="TextureRect" parent="Message"]
 visible = false
+modulate = Color( 1, 0.831373, 0.509804, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -256.0
-margin_top = -304.0
-margin_right = 256.0
-margin_bottom = 304.0
+margin_left = -560.0
+margin_top = -400.0
+margin_right = 560.0
+margin_bottom = 400.0
 theme = SubResource( 2 )
+texture = ExtResource( 14 )
+stretch_mode = 1
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -194,24 +197,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -219.0
-margin_top = -273.0
-margin_right = 219.0
-margin_bottom = 273.0
+margin_left = -327.352
+margin_top = -223.621
+margin_right = 326.648
+margin_bottom = 214.379
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.34902, 0.231373, 0.0862745, 1 )
-text = "The STARS guide the way...
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "March 12, 12:04
 
-The LIGHT shall banish the BEAST...
+The origins of this cave are fascinating! Strangely, standing on these STARS turns on these lanterns.
 
-The KEY will set you free."
+I hope to learn more as I delve deeper!"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Note" parent="." instance=ExtResource( 9 )]
-position = Vector2( 480.648, 3207.02 )
+position = Vector2( 648.648, 2752 )
 
 [node name="OceanOverlay" type="TileMap" parent="."]
 visible = false
