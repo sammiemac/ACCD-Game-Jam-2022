@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Tiles/TileWall.tres" type="TileSet" id=1]
+[ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemy/MainEnemy.tscn" type="PackedScene" id=4]
@@ -11,11 +11,12 @@
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Tiles/TileBox.gd" type="Script" id=10]
 [ext_resource path="res://Assets/BAS/Button.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Lever/LightLever.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/DoorScript.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=13]
-[ext_resource path="res://icon.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Item/BodySuit.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Door/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Levelsblackout.tres" type="Animation" id=16]
+[ext_resource path="res://Levels/Lights.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 397.975, 10 )
@@ -28,9 +29,10 @@ anims/blackout = ExtResource( 16 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
 visible = false
-color = Color( 0.0235294, 0.0313726, 0.027451, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="BlackOut" type="CanvasModulate" parent="."]
+visible = false
 
 [node name="LevelNavigation" type="Navigation2D" parent="." groups=[
 "LevelNavigation",
@@ -48,75 +50,90 @@ __meta__ = {
 }
 
 [node name="Plates" type="Node2D" parent="."]
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="P0" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 8913.46, 9252.57 )
-scale = Vector2( 2, 2 )
-
-[node name="P1" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 6691.15, 7922.51 )
-scale = Vector2( 2, 2 )
-
-[node name="P2" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 2876, 2888 )
-scale = Vector2( 2, 2 )
-
-[node name="P3" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 9868.71, 7922.51 )
-scale = Vector2( 2, 2 )
 
 [node name="LightPlate" parent="Plates" instance=ExtResource( 8 )]
 position = Vector2( 10417.5, 4036.15 )
 scale = Vector2( 2, 2 )
+out = 1
 
 [node name="LightPlate2" parent="Plates" instance=ExtResource( 8 )]
 position = Vector2( 5414.5, 2763.89 )
 scale = Vector2( 2, 2 )
+out = 2
 
 [node name="LightPlate3" parent="Plates" instance=ExtResource( 8 )]
 position = Vector2( 8593.46, 2219.85 )
 scale = Vector2( 2, 2 )
+out = 3
 
-[node name="BAS" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="B0" parent="BAS" instance=ExtResource( 11 )]
-position = Vector2( 6732.07, 9264.57 )
+[node name="LightPlate4" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 8913.46, 9252.57 )
 scale = Vector2( 2, 2 )
+out = 4
 
-[node name="Button" parent="BAS" instance=ExtResource( 11 )]
+[node name="LightPlate5" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 6691.15, 7922.51 )
+scale = Vector2( 2, 2 )
+out = 5
+
+[node name="LightPlate6" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 2876, 2888 )
+scale = Vector2( 2, 2 )
+out = 6
+
+[node name="LightPlate7" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 9868.71, 7922.51 )
+scale = Vector2( 2, 2 )
+out = 7
+
+[node name="Button" parent="Plates" instance=ExtResource( 11 )]
 position = Vector2( 6691.15, 4116.8 )
 scale = Vector2( 2, 2 )
 
-[node name="Button2" parent="BAS" instance=ExtResource( 11 )]
-position = Vector2( 2122.27, 896.209 )
+[node name="Button2" parent="Plates" instance=ExtResource( 11 )]
+position = Vector2( 2240, 960 )
 scale = Vector2( 2, 2 )
 
-[node name="Button3" parent="BAS" instance=ExtResource( 11 )]
-position = Vector2( 12402.6, 5384.38 )
+[node name="Button3" parent="Plates" instance=ExtResource( 11 )]
+position = Vector2( 12480, 5440 )
 scale = Vector2( 2, 2 )
 
-[node name="Levers" type="Node2D" parent="."]
+[node name="Button4" parent="Plates" instance=ExtResource( 11 )]
+position = Vector2( 6732.07, 9264.57 )
+scale = Vector2( 2, 2 )
+
+[node name="temp" parent="Plates" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 6720, 960 )
+scale = Vector2( 2, 2 )
+out = 8
+
+[node name="Door" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LightLever" parent="Levers" instance=ExtResource( 12 )]
-position = Vector2( 937.79, 892.173 )
+[node name="Door2" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 960, 1600 )
+rotation = 1.5708
 scale = Vector2( 2, 2 )
 
-[node name="LightLever2" parent="Levers" instance=ExtResource( 12 )]
-position = Vector2( 6691.15, 5384.38 )
-scale = Vector2( 2, 2 )
-
-[node name="LightLever3" parent="Levers" instance=ExtResource( 12 )]
-position = Vector2( 11200, 5440 )
+[node name="Door" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 6720, 2240 )
 rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Door3" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 6720, 6080 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Door4" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 10560, 5440 )
 scale = Vector2( 2, 2 )
 
 [node name="TileWall" type="TileMap" parent="."]
@@ -130,16 +147,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="GridBox" parent="TileWall" groups=[
-"Box",
-] instance=ExtResource( 9 )]
+[node name="GridBox" parent="TileWall" instance=ExtResource( 9 )]
 position = Vector2( 7730.66, 8968.57 )
 scale = Vector2( 2, 2 )
-collision_layer = 256
 collision_mask = 1027
 
 [node name="GridBox2" parent="TileWall" instance=ExtResource( 9 )]
-position = Vector2( 6412.07, 4436.8 )
+position = Vector2( 6400, 4480 )
 scale = Vector2( 2, 2 )
 
 [node name="GridBox3" parent="TileWall" instance=ExtResource( 9 )]
@@ -151,17 +165,25 @@ position = Vector2( 11520, 5120 )
 scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8960, 9280 )
+position = Vector2( 9600, 9280 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 8, 8 )
+limit_left = 0
+limit_top = 0
+limit_right = 14080
+limit_bottom = 10240
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MainEnemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 13114.4, 8118.45 )
 collision_mask = 1
 
 [node name="Lights" type="Node2D" parent="."]
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -212,30 +234,11 @@ scale = Vector2( 1, 1 )
 
 [node name="Light12" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 1920 )
+scale = Vector2( 1, 1 )
 
 [node name="Light13" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 4480, 2560 )
-
-[node name="Door" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Door2" parent="Door" instance=ExtResource( 15 )]
-position = Vector2( 960.31, 1603.4 )
-scale = Vector2( 4, 4 )
-
-[node name="Door" parent="Door" instance=ExtResource( 15 )]
-position = Vector2( 6720.15, 1603.4 )
-scale = Vector2( 4, 4 )
-
-[node name="Door3" parent="Door" instance=ExtResource( 15 )]
-position = Vector2( 6720, 6080 )
-scale = Vector2( 4, 4 )
-
-[node name="Door4" parent="Door" instance=ExtResource( 15 )]
-position = Vector2( 10560, 5440 )
-scale = Vector2( 4, 4 )
+scale = Vector2( 1, 1 )
 
 [node name="EnemyStart" type="Area2D" parent="."]
 __meta__ = {
@@ -245,6 +248,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStart"]
 position = Vector2( 7993.02, 8330.57 )
 shape = SubResource( 1 )
+
+[node name="BodySuit" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6720, 960 )
 
 [node name="Overlay" type="TileMap" parent="."]
 modulate = Color( 1, 1, 1, 0.498039 )
@@ -257,11 +263,21 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="Health" parent="HUD" instance=ExtResource( 7 )]
 position = Vector2( 240, 80 )
-
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 6720, 960 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 14 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="plate_press" from="Plates/LightPlate" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate2" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate3" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate4" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate5" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate6" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate7" to="Plates" method="lights_handler"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Lights/Light12" method="perm_on"]
+[connection signal="button_press" from="Plates/Button2" to="Lights/Light7" method="perm_on"]
+[connection signal="button_press" from="Plates/Button2" to="Door/Door4" method="open"]
+[connection signal="button_press" from="Plates/Button3" to="Door/Door" method="open"]
+[connection signal="button_press" from="Plates/Button3" to="Lights/Light8" method="perm_on"]
+[connection signal="button_press" from="Plates/Button4" to="Lights/Light5" method="perm_on"]
+[connection signal="button_press" from="Plates/Button4" to="Door/Door3" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="body_exited" from="EnemyStart" to="." method="_on_EnemyStart_body_exited"]

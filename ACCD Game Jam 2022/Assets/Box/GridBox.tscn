@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Box/GridBox.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Box/nautilus.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 150, 150 )
 
-[node name="GridBox" type="KinematicBody2D"]
-collision_layer = 64
-collision_mask = 3
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 273.165, 71.7029, 223.9, 67.465, 211.717, 71.7029, 196.354, 78.0597, 186.29, 84.9462, 173.046, 96.0705, 161.922, 108.254, 152.387, 118.849, 132.257, 125.206, 111.068, 120.968, 90.4081, 115.671, 58.6242, 117.79, 39.5539, 127.325, 18.3646, 142.687, 10.9484, 154.341, 3.0024, 178.709, 0.353729, 205.195, 4.59158, 237.509, 8.2997, 263.466, 41.6728, 285.714, 79.8135, 307.433, 113.716, 312.731, 155.035, 314.32, 185.23, 307.433, 220.192, 303.725, 240.852, 293.131, 261.511, 273.531, 283.23, 248.633, 300.711, 213.671, 310.776, 186.125, 318.193, 152.222, 319.782, 115.671, 300.182, 73.2921 )
+
+[node name="GridBox" type="KinematicBody2D" groups=[
+"Box",
+]]
+collision_layer = 256
+collision_mask = 515
 script = ExtResource( 1 )
 
 [node name="BoxSprite" type="Sprite" parent="."]
@@ -20,9 +25,12 @@ __meta__ = {
 
 [node name="BoxCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 160, 160 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 2 )

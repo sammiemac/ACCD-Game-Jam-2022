@@ -126,9 +126,6 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=39]
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=44]
-points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
-
 [sub_resource type="ConvexPolygonShape2D" id=40]
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
@@ -139,6 +136,9 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=43]
+points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=44]
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
 [resource]
@@ -257,14 +257,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 6/navigation_offset = Vector2( 0, 0 )
 6/shape_offset = Vector2( 0, 0 )
 6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape = SubResource( 40 )
+6/shape = SubResource( 41 )
 6/shape_one_way = false
 6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 40 ),
+"shape": SubResource( 41 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -278,14 +278,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 7/navigation_offset = Vector2( 0, 0 )
 7/shape_offset = Vector2( 0, 0 )
 7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 41 )
+7/shape = SubResource( 42 )
 7/shape_one_way = false
 7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 41 ),
+"shape": SubResource( 42 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -299,14 +299,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 8/navigation_offset = Vector2( 0, 0 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape = SubResource( 42 )
+8/shape = SubResource( 43 )
 8/shape_one_way = false
 8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 42 ),
+"shape": SubResource( 43 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
@@ -320,14 +320,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 9/navigation_offset = Vector2( 0, 0 )
 9/shape_offset = Vector2( 0, 0 )
 9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape = SubResource( 43 )
+9/shape = SubResource( 44 )
 9/shape_one_way = false
 9/shape_one_way_margin = 1.0
 9/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 43 ),
+"shape": SubResource( 44 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0
@@ -1181,14 +1181,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 55/navigation_offset = Vector2( 0, 0 )
 55/shape_offset = Vector2( 0, 0 )
 55/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-55/shape = SubResource( 44 )
+55/shape = SubResource( 40 )
 55/shape_one_way = false
 55/shape_one_way_margin = 1.0
 55/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 44 ),
+"shape": SubResource( 40 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 55/z_index = 0

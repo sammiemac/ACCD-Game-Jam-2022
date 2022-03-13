@@ -91,9 +91,9 @@ func check_box_collision(motion : Vector2) -> void:
 		return
 	var box : = get_slide_collision(0).collider as Box
 	if box:
-		box.push(push_speed * motion)
+		box.push(push_speed * motion, position)
 
-func damage(var knock):
+func damage(var _knock):
 	if not hit:
 		emit_signal("damaged")
 		hit = 1

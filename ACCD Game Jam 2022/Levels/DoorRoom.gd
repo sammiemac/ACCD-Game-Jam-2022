@@ -42,3 +42,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$AnimationPlayer.stop()
 #	get_tree().change_scene("res://Levels/MainRoom.tscn)
 	get_tree().change_scene("res://Levels/DoorRoom.tscn")
+
