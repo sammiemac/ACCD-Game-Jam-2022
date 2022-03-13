@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Item/tank.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Item/tank1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Item/tank3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Item/tank2.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "float",
+"speed": 5.0
+} ]
+
+[node name="AirTank" type="Node2D"]
+
+[node name="TankSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "float"
+frame = 5
+playing = true
