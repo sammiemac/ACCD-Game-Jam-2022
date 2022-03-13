@@ -21,10 +21,12 @@ radius = 131.221
 
 [node name="Permaspike" type="StaticBody2D"]
 collision_layer = 512
+collision_mask = 2147483648
 script = ExtResource( 4 )
 
 [node name="PermaSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="PermaHitbox" type="Area2D" parent="."]

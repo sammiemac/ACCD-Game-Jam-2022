@@ -33,3 +33,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$AnimationPlayer.stop()
 #	get_tree().change_scene("res://Levels/MainRoom.tscn)
 	get_tree().change_scene("res://Levels/BoxRoom.tscn")
+
+
+func lights_handler():
+	pass # Replace with function body.

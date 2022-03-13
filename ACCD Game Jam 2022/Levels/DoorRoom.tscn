@@ -11,12 +11,12 @@
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Test Assets/TileBox.gd" type="Script" id=10]
 [ext_resource path="res://Assets/BAS/Button.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Lever/LightLever.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=13]
 [ext_resource path="res://icon.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Door/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Plate/starfish_plate.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Plate/pressed_starfish_plate.png" type="Texture" id=17]
+[ext_resource path="res://Levels/DoorScript.gd" type="Script" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "blackout"
@@ -33,7 +33,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=5]
 script/source = "extends Area2D
 
 
@@ -41,8 +41,8 @@ script/source = "extends Area2D
 #var press = false
 
 # Signals that emit when 'press' is true or false
-signal bas_press
-signal bas_unpress
+signal button_press
+signal button_unpress
 
 
 func _ready():
@@ -52,13 +52,41 @@ func _ready():
 func _on_Button_body_entered(body):
 	if body.is_in_group(\"Box\"):
 #		press = true
-		emit_signal(\"bas_press\")
+		emit_signal(\"button_press\")
 
 # Unpresses iff the body is a box and exits the area
 func _on_Button_body_exited(body):
 	if body.is_in_group(\"Box\"):
 #		press = false
-		emit_signal(\"bas_unpress\")
+		emit_signal(\"button_unpress\")
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Area2D
+
+
+# Variable that determines if pressure plate has been pressed or not
+#var press = false
+
+# Signals that emit when 'press' is true or false
+signal button_press
+signal button_unpress
+
+
+func _ready():
+	$BASSprite.play(\"default\")
+
+# Presses iff the body is a box and enters the area
+func _on_Button_body_entered(body):
+	if body.is_in_group(\"Box\"):
+#		press = true
+		emit_signal(\"button_press\")
+
+# Unpresses iff the body is a box and exits the area
+func _on_Button_body_exited(body):
+	if body.is_in_group(\"Box\"):
+#		press = false
+		emit_signal(\"button_unpress\")
 "
 
 [sub_resource type="SpriteFrames" id=3]
@@ -77,32 +105,149 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=4]
 radius = 120.507
 
+[sub_resource type="GDScript" id=6]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
 [sub_resource type="GDScript" id=7]
-script/source = "extends Area2D
+script/source = "extends Node2D
 
 
-# Variable that determines if pressure plate has been pressed or not
-#var press = false
-
-# Signals that emit when 'press' is true or false
-signal bas_press
-signal bas_unpress
+#export var turn_on = false
 
 
-func _ready():
-	$BASSprite.play(\"default\")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
 
-# Presses iff the body is a box and enters the area
-func _on_Button_body_entered(body):
-	if body.is_in_group(\"Box\"):
-#		press = true
-		emit_signal(\"bas_press\")
 
-# Unpresses iff the body is a box and exits the area
-func _on_Button_body_exited(body):
-	if body.is_in_group(\"Box\"):
-#		press = false
-		emit_signal(\"bas_unpress\")
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+func perm_on():
+	$Light2D.visible = true
+
 "
 
 [sub_resource type="GDScript" id=11]
@@ -129,6 +274,9 @@ func turn_on():
 func _on_Timer_timeout():
 	$Light2D.visible = false
 
+
+func perm_on():
+	$Light2D.visible = true
 "
 
 [sub_resource type="GDScript" id=12]
@@ -154,6 +302,10 @@ func turn_on():
 
 func _on_Timer_timeout():
 	$Light2D.visible = false
+	
+
+func perm_on():
+	$Light2D.visible = true
 "
 
 [sub_resource type="GDScript" id=13]
@@ -180,6 +332,8 @@ func turn_on():
 func _on_Timer_timeout():
 	$Light2D.visible = false
 
+func perm_on():
+	$Light2D.visible = true
 "
 
 [sub_resource type="GDScript" id=14]
@@ -206,6 +360,9 @@ func turn_on():
 func _on_Timer_timeout():
 	$Light2D.visible = false
 
+
+func perm_on():
+	$Light2D.visible = true
 "
 
 [sub_resource type="GDScript" id=15]
@@ -233,7 +390,7 @@ func _on_Timer_timeout():
 	$Light2D.visible = false
 
 
-func _on_B0_bas_press():
+func perm_on():
 	$Light2D.visible = true
 "
 
@@ -261,6 +418,9 @@ func turn_on():
 func _on_Timer_timeout():
 	$Light2D.visible = false
 
+
+func perm_on():
+	$Light2D.visible = true
 "
 
 [sub_resource type="GDScript" id=17]
@@ -286,9 +446,9 @@ func turn_on():
 
 func _on_Timer_timeout():
 	$Light2D.visible = false
-	
 
-func _on_Button2_bas_press():
+
+func perm_on():
 	$Light2D.visible = true
 "
 
@@ -315,147 +475,41 @@ func turn_on():
 
 func _on_Timer_timeout():
 	$Light2D.visible = false
+
+func perm_on():
+	$Light2D.visible = true
 "
 
 [sub_resource type="GDScript" id=19]
-script/source = "extends Node2D
+script/source = "extends StaticBody2D
 
 
-#export var turn_on = false
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
+func open():
+	set_collision_mask_bit(0, false)
+	visible = false		# door open
 "
 
 [sub_resource type="GDScript" id=20]
-script/source = "extends Node2D
+script/source = "extends StaticBody2D
 
 
-#export var turn_on = false
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
+func open():
+	set_collision_mask_bit(0, false)
+	visible = false		# door open
 "
 
 [sub_resource type="GDScript" id=21]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-"
-
-[sub_resource type="GDScript" id=22]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-
-func _on_Button_bas_press():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=23]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-"
-
-[sub_resource type="GDScript" id=8]
 script/source = "extends StaticBody2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -463,74 +517,16 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Button_bas_press():
+func open():
 	set_collision_mask_bit(0, false)
 	visible = false		# door open
 "
 
-[sub_resource type="GDScript" id=24]
-script/source = "extends StaticBody2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Button3_bas_press():
-	set_collision_mask_bit(0, false)
-	visible = false		# door open
-"
-
-[sub_resource type="GDScript" id=25]
-script/source = "extends StaticBody2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_B0_bas_press():
-	set_collision_mask_bit(0, false)
-	visible = false
-"
-
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 32.115, 31.5431 )
 
-[sub_resource type="GDScript" id=26]
+[sub_resource type="GDScript" id=23]
 script/source = "extends StaticBody2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -538,17 +534,12 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Button2_bas_press():
+func open():
 	set_collision_mask_bit(0, false)
 	visible = false		# door open
 "
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 397.975, 10 )
 
 [node name="Room2" type="Node2D"]
@@ -562,7 +553,6 @@ visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="BlackOut" type="CanvasModulate" parent="."]
-visible = false
 
 [node name="LevelNavigation" type="Navigation2D" parent="." groups=[
 "LevelNavigation",
@@ -580,85 +570,70 @@ __meta__ = {
 }
 
 [node name="Plates" type="Node2D" parent="."]
+script = ExtResource( 18 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="P0" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 8913.46, 9252.57 )
-scale = Vector2( 2, 2 )
-
-[node name="P1" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 6691.15, 7922.51 )
-scale = Vector2( 2, 2 )
-
-[node name="P2" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 2876, 2888 )
-scale = Vector2( 2, 2 )
-
-[node name="P3" parent="Plates" instance=ExtResource( 8 )]
-position = Vector2( 9868.71, 7922.51 )
-scale = Vector2( 2, 2 )
 
 [node name="LightPlate" parent="Plates" instance=ExtResource( 8 )]
 position = Vector2( 10417.5, 4036.15 )
 scale = Vector2( 2, 2 )
+out = 1
 
 [node name="LightPlate2" parent="Plates" instance=ExtResource( 8 )]
 position = Vector2( 5414.5, 2763.89 )
 scale = Vector2( 2, 2 )
+out = 2
 
 [node name="LightPlate3" parent="Plates" instance=ExtResource( 8 )]
 position = Vector2( 8593.46, 2219.85 )
 scale = Vector2( 2, 2 )
+out = 3
 
-[node name="Buttons" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="B0" type="Area2D" parent="Buttons"]
-position = Vector2( 6732.07, 9264.57 )
+[node name="LightPlate4" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 8913.46, 9252.57 )
 scale = Vector2( 2, 2 )
-script = SubResource( 6 )
+out = 4
 
-[node name="BASSprite" type="AnimatedSprite" parent="Buttons/B0"]
-frames = SubResource( 3 )
+[node name="LightPlate5" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 6691.15, 7922.51 )
+scale = Vector2( 2, 2 )
+out = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/B0"]
-position = Vector2( 14.5, 20.5 )
-shape = SubResource( 4 )
+[node name="LightPlate6" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 2876, 2888 )
+scale = Vector2( 2, 2 )
+out = 6
 
-[node name="Button" parent="Buttons" instance=ExtResource( 11 )]
+[node name="LightPlate7" parent="Plates" instance=ExtResource( 8 )]
+position = Vector2( 9868.71, 7922.51 )
+scale = Vector2( 2, 2 )
+out = 7
+
+[node name="Button" parent="Plates" instance=ExtResource( 11 )]
 position = Vector2( 6699.31, 4155 )
 scale = Vector2( 2, 2 )
-script = SubResource( 7 )
+script = SubResource( 5 )
 
-[node name="Button2" parent="Buttons" instance=ExtResource( 11 )]
+[node name="Button2" parent="Plates" instance=ExtResource( 11 )]
 position = Vector2( 2122.27, 896.209 )
 scale = Vector2( 2, 2 )
 
-[node name="Button3" parent="Buttons" instance=ExtResource( 11 )]
+[node name="Button3" parent="Plates" instance=ExtResource( 11 )]
 position = Vector2( 12402.6, 5384.38 )
 scale = Vector2( 2, 2 )
 
-[node name="Levers" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="LightLever" parent="Levers" instance=ExtResource( 12 )]
-position = Vector2( 937.79, 892.173 )
+[node name="Button4" type="Area2D" parent="Plates"]
+position = Vector2( 6732.07, 9264.57 )
 scale = Vector2( 2, 2 )
+script = SubResource( 2 )
 
-[node name="LightLever2" parent="Levers" instance=ExtResource( 12 )]
-position = Vector2( 6691.15, 5384.38 )
-scale = Vector2( 2, 2 )
+[node name="BASSprite" type="AnimatedSprite" parent="Plates/Button4"]
+frames = SubResource( 3 )
 
-[node name="LightLever3" parent="Levers" instance=ExtResource( 12 )]
-position = Vector2( 11200, 5440 )
-rotation = -1.5708
-scale = Vector2( 2, 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plates/Button4"]
+position = Vector2( 14.5, 20.5 )
+shape = SubResource( 4 )
 
 [node name="TileWall" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -698,7 +673,7 @@ position = Vector2( 11520, 5120 )
 scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9554.68, 9269.92 )
+position = Vector2( 9501.29, 9269.92 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -710,7 +685,6 @@ limit_bottom = 10240
 
 [node name="MainEnemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 13114.4, 8118.45 )
-collision_mask = 1
 
 [node name="Lights" type="Node2D" parent="."]
 __meta__ = {
@@ -720,65 +694,65 @@ __meta__ = {
 [node name="Light" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 7730.66, 8330.57 )
 scale = Vector2( -1, 1 )
-script = SubResource( 11 )
+script = SubResource( 6 )
 
 [node name="Light2" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 4480, 8320 )
 scale = Vector2( -1, 1 )
-script = SubResource( 12 )
+script = SubResource( 7 )
 
 [node name="Light3" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 8320 )
 scale = Vector2( -1, 1 )
-script = SubResource( 13 )
+script = SubResource( 8 )
 
 [node name="Light4" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 5760 )
 scale = Vector2( 1, 1 )
-script = SubResource( 14 )
+script = SubResource( 9 )
 
 [node name="Light5" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 5760, 5120 )
 scale = Vector2( -1, 1 )
-script = SubResource( 15 )
+script = SubResource( 10 )
 
 [node name="Light6" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 8960, 4480 )
 scale = Vector2( -1, 1 )
-script = SubResource( 16 )
+script = SubResource( 11 )
 
 [node name="Light7" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 11520, 5120 )
 scale = Vector2( 1, 1 )
-script = SubResource( 17 )
+script = SubResource( 12 )
 
 [node name="Light8" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 7680, 1920 )
 scale = Vector2( -1, 1 )
-script = SubResource( 18 )
+script = SubResource( 13 )
 
 [node name="Light9" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 10240, 1920 )
 scale = Vector2( 1, 1 )
-script = SubResource( 19 )
+script = SubResource( 14 )
 
 [node name="Light10" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 9600, 7040 )
 scale = Vector2( 1, 1 )
-script = SubResource( 20 )
+script = SubResource( 15 )
 
 [node name="Light11" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 12160, 7680 )
 scale = Vector2( 1, 1 )
-script = SubResource( 21 )
+script = SubResource( 16 )
 
 [node name="Light12" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 1920 )
-script = SubResource( 22 )
+script = SubResource( 17 )
 
 [node name="Light13" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 4480, 2560 )
-script = SubResource( 23 )
+script = SubResource( 18 )
 
 [node name="Door" type="Node2D" parent="."]
 __meta__ = {
@@ -788,28 +762,28 @@ __meta__ = {
 [node name="Door2" parent="Door" instance=ExtResource( 15 )]
 position = Vector2( 960.31, 1603.4 )
 scale = Vector2( 4, 4 )
-script = SubResource( 8 )
+script = SubResource( 19 )
 
 [node name="Door" parent="Door" instance=ExtResource( 15 )]
 position = Vector2( 6720.15, 1603.4 )
 scale = Vector2( 4, 4 )
-script = SubResource( 24 )
+script = SubResource( 20 )
 
 [node name="Door3" type="StaticBody2D" parent="Door"]
 position = Vector2( 6720, 6080 )
 scale = Vector2( 4, 4 )
-script = SubResource( 25 )
+script = SubResource( 21 )
 
 [node name="Sprite" type="Sprite" parent="Door/Door3"]
 texture = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Door3"]
-shape = SubResource( 5 )
+shape = SubResource( 22 )
 
 [node name="Door4" parent="Door" instance=ExtResource( 15 )]
 position = Vector2( 10560, 5440 )
 scale = Vector2( 4, 4 )
-script = SubResource( 26 )
+script = SubResource( 23 )
 
 [node name="EnemyStart" type="Area2D" parent="."]
 __meta__ = {
@@ -818,7 +792,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStart"]
 position = Vector2( 7993.02, 8330.57 )
-shape = SubResource( 2 )
+shape = SubResource( 24 )
 
 [node name="Overlay" type="TileMap" parent="."]
 visible = false
@@ -838,25 +812,24 @@ position = Vector2( 6720, 960 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 14 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="plate_press" from="Plates/P0" to="Lights/Light11" method="turn_on"]
-[connection signal="plate_press" from="Plates/P0" to="Lights/Light" method="turn_on"]
-[connection signal="plate_press" from="Plates/P1" to="Lights/Light3" method="turn_on"]
-[connection signal="plate_press" from="Plates/P1" to="Lights/Light2" method="turn_on"]
-[connection signal="plate_press" from="Plates/P1" to="Lights/Light4" method="turn_on"]
-[connection signal="plate_press" from="Plates/P2" to="Lights/Light13" method="turn_on"]
-[connection signal="plate_press" from="Plates/P3" to="Lights/Light10" method="turn_on"]
 [connection signal="plate_press" from="Plates/LightPlate" to="Lights/Light6" method="turn_on"]
 [connection signal="plate_press" from="Plates/LightPlate2" to="Lights/Light8" method="turn_on"]
 [connection signal="plate_press" from="Plates/LightPlate3" to="Lights/Light9" method="turn_on"]
-[connection signal="bas_press" from="Buttons/B0" to="Lights/Light5" method="_on_B0_bas_press"]
-[connection signal="bas_press" from="Buttons/B0" to="Door/Door3" method="_on_B0_bas_press"]
-[connection signal="body_entered" from="Buttons/B0" to="Buttons/B0" method="_on_Button_body_entered"]
-[connection signal="body_exited" from="Buttons/B0" to="Buttons/B0" method="_on_Button_body_exited"]
-[connection signal="bas_press" from="Buttons/Button" to="Lights/Light12" method="_on_Button_bas_press"]
-[connection signal="bas_press" from="Buttons/Button" to="Door/Door2" method="_on_Button_bas_press"]
-[connection signal="bas_press" from="Buttons/Button2" to="Lights/Light7" method="_on_Button2_bas_press"]
-[connection signal="bas_press" from="Buttons/Button2" to="Door/Door4" method="_on_Button2_bas_press"]
-[connection signal="bas_press" from="Buttons/Button3" to="Lights/Light8" method="turn_on"]
-[connection signal="bas_press" from="Buttons/Button3" to="Door/Door" method="_on_Button3_bas_press"]
+[connection signal="plate_press" from="Plates/LightPlate4" to="Lights/Light" method="turn_on"]
+[connection signal="plate_press" from="Plates/LightPlate4" to="Lights/Light11" method="turn_on"]
+[connection signal="plate_press" from="Plates/LightPlate5" to="Lights/Light3" method="turn_on"]
+[connection signal="plate_press" from="Plates/LightPlate5" to="Lights/Light4" method="turn_on"]
+[connection signal="plate_press" from="Plates/LightPlate5" to="Lights/Light2" method="turn_on"]
+[connection signal="plate_press" from="Plates/LightPlate6" to="Lights/Light13" method="turn_on"]
+[connection signal="plate_press" from="Plates/LightPlate7" to="Lights/Light10" method="turn_on"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Lights/Light12" method="perm_on"]
+[connection signal="button_press" from="Plates/Button2" to="Door/Door4" method="open"]
+[connection signal="button_press" from="Plates/Button2" to="Lights/Light7" method="perm_on"]
+[connection signal="button_press" from="Plates/Button3" to="Door/Door" method="open"]
+[connection signal="body_entered" from="Plates/Button4" to="Plates/Button4" method="_on_Button_body_entered"]
+[connection signal="body_exited" from="Plates/Button4" to="Plates/Button4" method="_on_Button_body_exited"]
+[connection signal="button_press" from="Plates/Button4" to="Door/Door3" method="open"]
+[connection signal="button_press" from="Plates/Button4" to="Lights/Light5" method="perm_on"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="body_exited" from="EnemyStart" to="." method="_on_EnemyStart_body_exited"]

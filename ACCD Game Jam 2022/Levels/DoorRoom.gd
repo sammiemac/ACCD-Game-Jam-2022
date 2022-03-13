@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player_health == 2:
 		$HUD/Health/Heart3/Full.visible = false
 	if player_health == 1:
@@ -43,6 +43,3 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 #	get_tree().change_scene("res://Levels/MainRoom.tscn)
 	get_tree().change_scene("res://Levels/DoorRoom.tscn")
 
-
-func _on_B0_bas_press():
-	pass # Replace with function body.

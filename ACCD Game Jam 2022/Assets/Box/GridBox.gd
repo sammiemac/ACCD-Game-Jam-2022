@@ -12,11 +12,20 @@ func initialize(_tile_map: TileMap) -> void:
 	position = calculate_destination(Vector2())
 	
 	
+#func push(velocity: Vector2, player: Vector2) -> void:
 func push(velocity: Vector2) -> void:
 	if sliding:
 		return
 	var move_to : = calculate_destination(velocity.normalized())
-	if can_move(move_to):
+	var move_to_inv : = calculate_destination(velocity.normalized() * -1)
+	move_to_inv += velocity.normalized() * 320
+	#move_to_inv2 = Vector2(velocity.normalized())
+#	var player_pos = tile_map.world_to_map(player)
+#	print(player_pos)
+#	print(tile_map.map_to_world(player_pos))
+#	print(move_to_inv)
+#	print(tile_map.map_to_world(player_pos) == move_to_inv)
+	if can_move(move_to): # and tile_map.map_to_world(player_pos) == move_to_inv:
 		tween.interpolate_property(self,
 			"global_position",
 			global_position,

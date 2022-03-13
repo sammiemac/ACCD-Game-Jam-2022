@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Tiles/TileWall.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=2]
@@ -10,13 +10,370 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://icon.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Door/Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Lever/LightLever.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/BoxScript.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Plate/LightPlate.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Spike/Permaspike.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/BAS/Button.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Tiles/TileBox.gd" type="Script" id=17]
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func open():
+	set_collision_mask_bit(0, false)
+	visible = false		# door open
+"
+
+[sub_resource type="GDScript" id=13]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func open():
+	set_collision_mask_bit(0, false)
+	visible = false		# door open
+"
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+func perm_on():
+	$Light2D.visible = true
+
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+func perm_on():
+	$Light2D.visible = true
+"
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends Node2D
+
+
+#export var turn_on = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	if turn_on:
+#		$Light2D.visible = true
+#		$Timer.start()
+#	elif not turn_on:
+#		$Light2D.visible = false
+
+
+func turn_on():
+	$Light2D.visible = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	$Light2D.visible = false
+
+
+
+func perm_on():
+	$Light2D.visible = true
+"
 
 [node name="BoxRoom" type="Node2D"]
 script = ExtResource( 6 )
@@ -25,13 +382,13 @@ script = ExtResource( 6 )
 anims/blackout = ExtResource( 5 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0235294, 0.0313726, 0.027451, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="BlackOut" type="CanvasModulate" parent="."]
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -54,51 +411,45 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Levers" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="LightLever" parent="Levers" instance=ExtResource( 11 )]
-position = Vector2( 1600, 6080 )
-scale = Vector2( 2, 2 )
-
-[node name="LightLever2" parent="Levers" instance=ExtResource( 11 )]
-position = Vector2( 3520, 9280 )
-rotation = -1.5708
-scale = Vector2( 2, 2 )
-
-[node name="LightLever3" parent="Levers" instance=ExtResource( 11 )]
-position = Vector2( 5440, 6720 )
-scale = Vector2( 2, 2 )
-
 [node name="Plates" type="Node2D" parent="."]
+script = ExtResource( 11 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_lock_": true,
+"_editor_description_": "Manually use match to use light functions"
 }
 
 [node name="LightPlate" parent="Plates" instance=ExtResource( 13 )]
 position = Vector2( 6080, 6080 )
 scale = Vector2( 2, 2 )
+out = 1
 
 [node name="LightPlate2" parent="Plates" instance=ExtResource( 13 )]
 position = Vector2( 6080, 8000 )
 scale = Vector2( 2, 2 )
+out = 2
 
 [node name="LightPlate3" parent="Plates" instance=ExtResource( 13 )]
 position = Vector2( 2240, 8640 )
 scale = Vector2( 2, 2 )
+out = 3
 
 [node name="LightPlate4" parent="Plates" instance=ExtResource( 13 )]
 position = Vector2( 2240, 6720 )
 scale = Vector2( 2, 2 )
+out = 4
 
 [node name="LightPlate5" parent="Plates" instance=ExtResource( 13 )]
 position = Vector2( 960, 4160 )
 scale = Vector2( 2, 2 )
+out = 5
 
 [node name="LightPlate6" parent="Plates" instance=ExtResource( 13 )]
 position = Vector2( 320, 2880 )
+scale = Vector2( 2, 2 )
+out = 6
+
+[node name="Button" parent="Plates" instance=ExtResource( 16 )]
+position = Vector2( 8640, 3510.49 )
 scale = Vector2( 2, 2 )
 
 [node name="Permaspike" type="Node2D" parent="."]
@@ -118,15 +469,6 @@ scale = Vector2( 2, 2 )
 position = Vector2( 2880, 8640 )
 scale = Vector2( 2, 2 )
 
-[node name="BAS" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Button" parent="BAS" instance=ExtResource( 16 )]
-position = Vector2( 8640, 3520 )
-scale = Vector2( 2, 2 )
-
 [node name="Door" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -135,10 +477,12 @@ __meta__ = {
 [node name="Door" parent="Door" instance=ExtResource( 10 )]
 position = Vector2( 4160, 2240 )
 scale = Vector2( 4, 4 )
+script = SubResource( 12 )
 
 [node name="Door2" parent="Door" instance=ExtResource( 10 )]
 position = Vector2( 8000, 2880 )
 scale = Vector2( 4, 4 )
+script = SubResource( 13 )
 
 [node name="icon" type="Sprite" parent="Door/Door2"]
 position = Vector2( -320, -320 )
@@ -156,91 +500,135 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="GridBox" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 6400, 3200 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox2" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox2" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5760, 3200 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox3" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox3" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5760, 3840 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox4" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox4" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 7040, 3840 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox5" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox5" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5120, 4480 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox6" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox6" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 8320, 5120 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox7" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox7" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 7680, 4480 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox8" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox8" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 7040, 5120 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox9" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox9" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5760, 5120 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox10" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox10" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 6400, 4480 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox11" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox11" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 8320, 6400 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox12" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox12" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 7680, 5760 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox13" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox13" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 7040, 6400 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox14" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox14" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 6400, 5760 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox15" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox15" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5760, 8320 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox16" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox16" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5120, 8320 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox17" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox17" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5120, 8960 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox18" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox18" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 1920, 7680 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox19" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox19" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 1920, 4480 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox20" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox20" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 1280, 4480 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox21" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox21" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 640, 4480 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox22" parent="TileWall" instance=ExtResource( 15 )]
+[node name="GridBox22" parent="TileWall" groups=[
+"Box",
+] instance=ExtResource( 15 )]
 position = Vector2( 5120, 3840 )
 scale = Vector2( 2, 2 )
 
@@ -266,46 +654,57 @@ __meta__ = {
 [node name="Light" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 5760, 1600 )
 scale = Vector2( 1, 1 )
+script = SubResource( 1 )
 
 [node name="Light2" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 7680, 1600 )
 scale = Vector2( 1, 1 )
+script = SubResource( 2 )
 
 [node name="Light3" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 6400, 4480 )
 scale = Vector2( 1, 1 )
+script = SubResource( 3 )
 
 [node name="Light4" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 7680, 4480 )
 scale = Vector2( 1, 1 )
+script = SubResource( 4 )
 
 [node name="Light5" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 7680, 5760 )
 scale = Vector2( 1, 1 )
+script = SubResource( 5 )
 
 [node name="Light6" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 6400, 5760 )
 scale = Vector2( 1, 1 )
+script = SubResource( 6 )
 
 [node name="Light7" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 5120, 8320 )
 scale = Vector2( 1, 1 )
+script = SubResource( 7 )
 
 [node name="Light8" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 2560, 8960 )
 scale = Vector2( 1, 1 )
+script = SubResource( 8 )
 
 [node name="Light9" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 2560, 7040 )
 scale = Vector2( 1, 1 )
+script = SubResource( 9 )
 
 [node name="Light10" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 1920, 1920 )
 scale = Vector2( 1, 1 )
+script = SubResource( 10 )
 
 [node name="Light11" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 1920, 4480 )
 scale = Vector2( 1, 1 )
+script = SubResource( 11 )
 
 [node name="Overlay" type="TileMap" parent="."]
 modulate = Color( 1, 1, 1, 0.498039 )
@@ -319,4 +718,12 @@ tile_data = PoolIntArray( 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65
 [node name="Health" parent="HUD" instance=ExtResource( 3 )]
 position = Vector2( 240, 80 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="plate_press" from="Plates/LightPlate" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate2" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate3" to="." method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate4" to="." method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate5" to="." method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate6" to="." method="lights_handler"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
