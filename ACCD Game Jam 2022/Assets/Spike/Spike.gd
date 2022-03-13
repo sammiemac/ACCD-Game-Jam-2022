@@ -9,28 +9,32 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if not $Timer.is_stopped():
+		idle()
 
 
 func idle():
 #	print("idle")
 	$SnapAnim.stop()
 	
+	$SpikeHitbox/CollisionShape2D.disabled = true
 	$SpikeHitbox.set_collision_mask_bit(0, false)
 	
 	$IdleAnim.visible = true
 	$SnapAnim.visible = false
 	$IdleShape.disabled = false
 	$SnapShape.disabled = true
-	$Timer.wait_time = timer
-	$Timer.start()
+	if $Timer.is_stopped():
+		$Timer.wait_time = timer
+		$Timer.start()
 
 
 func _on_Timer_timeout():
 #	print("snap")
 	$SnapAnim.play("snap")
-	
+
+	$SpikeHitbox/CollisionShape2D.disabled = false
 	$SpikeHitbox.set_collision_mask_bit(0, true)
 	
 	$IdleAnim.visible = false

@@ -720,6 +720,6 @@ tile_data = PoolIntArray( 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65
 [node name="Health" parent="HUD" instance=ExtResource( 3 )]
 position = Vector2( 240, 80 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]

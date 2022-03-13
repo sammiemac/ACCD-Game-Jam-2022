@@ -35,7 +35,7 @@ extents = Vector2( 160, 4 )
 extents = Vector2( 64.8748, 160 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 152, 152 )
+extents = Vector2( 152, 148.889 )
 
 [node name="Spike" type="StaticBody2D"]
 script = ExtResource( 4 )
@@ -48,6 +48,7 @@ playing = true
 [node name="SnapAnim" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "snap"
+frame = 2
 playing = true
 
 [node name="IdleShape" type="CollisionShape2D" parent="."]
@@ -60,6 +61,7 @@ disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
+one_shot = true
 
 [node name="SpikeHitbox" type="Area2D" parent="."]
 collision_layer = 512

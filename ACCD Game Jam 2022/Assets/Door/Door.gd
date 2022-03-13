@@ -6,6 +6,6 @@ func _ready():
 	pass # Replace with function body.
 
 func open():
-#	set_collision_mask_bit(0, false)
+#	$CollisionShape2D.disabled = true
 #	visible = false		# door open
 	queue_free()
