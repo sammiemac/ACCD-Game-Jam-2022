@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall.png-2fddbb470aade516b6b21a359e75de54.stex"
+path="res://.import/sand_shark_f1.png-f1d0a83a2d193e5e5f23b5359dd2a8df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/wall.png"
-dest_files=[ "res://.import/wall.png-2fddbb470aade516b6b21a359e75de54.stex" ]
+source_file="res://Enemy/sand_shark_f1.png"
+dest_files=[ "res://.import/sand_shark_f1.png-f1d0a83a2d193e5e5f23b5359dd2a8df.stex" ]
 
 [params]
 

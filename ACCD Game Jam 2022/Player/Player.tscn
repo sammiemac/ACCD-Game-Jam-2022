@@ -95,7 +95,6 @@ __meta__ = {
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
-texture_scale = 0.5
 energy = 0.7
 
 [node name="Timer" type="Timer" parent="."]
