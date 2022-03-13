@@ -8,15 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Box",
+"language": "GDScript",
+"path": "res://Assets/Box/Box.gd"
+}, {
+"base": "Box",
+"class": "GridBox",
+"language": "GDScript",
+"path": "res://Assets/Box/GridBox.gd"
+} ]
 _global_script_class_icons={
-
+"Box": "",
+"GridBox": ""
 }
 
 [application]
 
 config/name="ACCD Game Jam 2022"
-run/main_scene="res://Levels/Room0.tscn"
+run/main_scene="res://Levels/TutorialRoom.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -59,11 +70,14 @@ move_down={
 2d_physics/layer_1="player"
 2d_physics/layer_2="environment"
 2d_physics/layer_3="enemy"
-2d_physics/layer_4="plate"
-2d_physics/layer_5="lever"
+2d_physics/layer_4="lever"
+2d_physics/layer_5="plater"
 2d_physics/layer_6="key"
-2d_physics/layer_7="box"
+2d_physics/layer_7="maindoor"
 2d_physics/layer_8="door"
+2d_physics/layer_9="box"
+2d_physics/layer_10="spike"
+2d_physics/layer_11="button"
 
 [physics]
 

@@ -4,14 +4,16 @@ extends KinematicBody2D
 
 
 # Variable for enemy speed that can be accessed in the inspector
-export (int) var enemy_speed = 10
+export (int) var enemy_speed = 1000
+export (bool) var enemy_on = true
 # Variable for enemy velocity
 var velocity = Vector2()
 
 var path: Array = []
 var level_navigation: Navigation2D = null
 var player = null
-
+var hit = 0
+export var knockback = 700
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,15 +23,17 @@ func _ready():
 		level_navigation = tree.get_nodes_in_group("LevelNavigation")[0]
 	if tree.has_group("Player"):
 		player = tree.get_nodes_in_group("Player")[0]
+		print(player)
 
 
 func _physics_process(_delta):
-	if player and level_navigation:
-#		rotation_degrees = get_angle_to(player.global_position)
-		look_at(player.global_position)
-		generate_path()
-		navigate()
-	move()
+	if enemy_on:
+		if player and level_navigation and not hit:
+#			rotation_degrees = get_angle_to(player.global_position)
+#			look_at(player.global_position)
+			generate_path()
+			navigate()
+		move()
 
 
 func navigate():
@@ -47,6 +51,26 @@ func generate_path():
 
 func move():
 	velocity = move_and_slide(velocity)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+func _on_EnemyHitbox_body_entered(body):
+	if body.is_in_group("Player"):
+		body.damage(true)
+		set_collision_mask_bit(0, false)
+		hit = 1
+		
+		if position.x < body.position.x:
+			velocity.x = -1
+		elif position.x > body.position.x:
+			velocity.x = 1
+		if position.y < body.position.y:
+			velocity.y = -1
+		elif position.y > body.position.y:
+			velocity.x = 1
+		velocity = velocity.normalized() * knockback
+		if $Timer.is_stopped():
+			$Timer.start()
+
+func _on_Timer_timeout():
+	set_collision_mask_bit(0, true)
+	hit = 0

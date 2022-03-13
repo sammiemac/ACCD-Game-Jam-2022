@@ -17,6 +17,26 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "front",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "front_move",
@@ -36,26 +56,6 @@ animations = [ {
 "loop": true,
 "name": "left_move",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "back",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -67,7 +67,6 @@ height = 54.7051
 ]]
 collision_mask = 254
 script = ExtResource( 1 )
-player_speed = 320
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -96,6 +95,8 @@ __meta__ = {
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
-texture_scale = 0.01
-energy = 0.3
-shadow_enabled = true
+texture_scale = 0.5
+energy = 0.7
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
