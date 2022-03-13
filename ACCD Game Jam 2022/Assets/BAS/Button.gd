@@ -15,11 +15,13 @@ func _ready():
 # Presses iff the body is a box and enters the area
 func _on_Button_body_entered(body):
 	if body.is_in_group("Box"):
+		$BASSprite.play("pressed")
 #		press = true
 		emit_signal("button_press")
 
 # Unpresses iff the body is a box and exits the area
 func _on_Button_body_exited(body):
 	if body.is_in_group("Box"):
+		$BASSprite.play("default")
 #		press = false
 		emit_signal("button_unpress")

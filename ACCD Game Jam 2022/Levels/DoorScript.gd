@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for child in get_children():		
+	for child in get_children():        
 		child.connect("plate_press", self, "lights_handler")
 #		child.connect("button_press", self, "lights_on")
 
@@ -28,9 +28,9 @@ func lights_handler(var num):
 			lightNode.get_node("Light13").turn_on()
 		7:
 			lightNode.get_node("Light10").turn_on()
-#		_:
-#			for child in lightNode.get_children(): 
-#				child.perm_on()
+		_:
+			for child in lightNode.get_children(): 
+				child.perm_on()
 				
 func lights_on():
 	var lightNode = get_parent().get_node("Lights")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Tiles/TileWall.tres" type="TileSet" id=1]
+[ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemy/MainEnemy.tscn" type="PackedScene" id=4]
@@ -11,346 +11,12 @@
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Test Assets/TileBox.gd" type="Script" id=10]
 [ext_resource path="res://Assets/BAS/Button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/DoorScript.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=13]
-[ext_resource path="res://icon.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Item/BodySuit.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Door/Door.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Assets/Plate/starfish_plate.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Plate/pressed_starfish_plate.png" type="Texture" id=17]
-[ext_resource path="res://Levels/DoorScript.gd" type="Script" id=18]
-
-[sub_resource type="Animation" id=1]
-resource_name = "blackout"
-tracks/0/type = "value"
-tracks/0/path = NodePath("BlackOut:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="GDScript" id=5]
-script/source = "extends Area2D
-
-
-# Variable that determines if pressure plate has been pressed or not
-#var press = false
-
-# Signals that emit when 'press' is true or false
-signal button_press
-signal button_unpress
-
-
-func _ready():
-	$BASSprite.play(\"default\")
-
-# Presses iff the body is a box and enters the area
-func _on_Button_body_entered(body):
-	if body.is_in_group(\"Box\"):
-#		press = true
-		emit_signal(\"button_press\")
-
-# Unpresses iff the body is a box and exits the area
-func _on_Button_body_exited(body):
-	if body.is_in_group(\"Box\"):
-#		press = false
-		emit_signal(\"button_unpress\")
-"
-
-[sub_resource type="GDScript" id=2]
-script/source = "extends Area2D
-
-
-# Variable that determines if pressure plate has been pressed or not
-#var press = false
-
-# Signals that emit when 'press' is true or false
-signal button_press
-signal button_unpress
-
-
-func _ready():
-	$BASSprite.play(\"default\")
-
-# Presses iff the body is a box and enters the area
-func _on_Button_body_entered(body):
-	if body.is_in_group(\"Box\"):
-#		press = true
-		emit_signal(\"button_press\")
-
-# Unpresses iff the body is a box and exits the area
-func _on_Button_body_exited(body):
-	if body.is_in_group(\"Box\"):
-#		press = false
-		emit_signal(\"button_unpress\")
-"
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "pressed",
-"speed": 5.0
-} ]
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 120.507
-
-[sub_resource type="GDScript" id=6]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-
-func perm_on():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=7]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-func perm_on():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=8]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-
-func perm_on():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=9]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-
-func perm_on():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=10]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-
-func perm_on():
-	$Light2D.visible = true
-
-"
-
-[sub_resource type="GDScript" id=11]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-
-func perm_on():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=12]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-	
-
-func perm_on():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=13]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
-
-func turn_on():
-	$Light2D.visible = true
-	$Timer.start()
-
-
-func _on_Timer_timeout():
-	$Light2D.visible = false
-
-func perm_on():
-	$Light2D.visible = true
-"
-
-[sub_resource type="GDScript" id=14]
-script/source = "extends Node2D
-
-
-#export var turn_on = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if turn_on:
-#		$Light2D.visible = true
-#		$Timer.start()
-#	elif not turn_on:
-#		$Light2D.visible = false
-
+[ext_resource path="res://Levelsblackout.tres" type="Animation" id=16]
+[ext_resource path="res://Levels/Lights.gd" type="Script" id=17]
 
 func turn_on():
 	$Light2D.visible = true
@@ -553,6 +219,7 @@ visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="BlackOut" type="CanvasModulate" parent="."]
+visible = false
 
 [node name="LevelNavigation" type="Navigation2D" parent="." groups=[
 "LevelNavigation",
@@ -570,7 +237,7 @@ __meta__ = {
 }
 
 [node name="Plates" type="Node2D" parent="."]
-script = ExtResource( 18 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -611,20 +278,52 @@ scale = Vector2( 2, 2 )
 out = 7
 
 [node name="Button" parent="Plates" instance=ExtResource( 11 )]
-position = Vector2( 6699.31, 4155 )
+position = Vector2( 6691.15, 4116.8 )
 scale = Vector2( 2, 2 )
-script = SubResource( 5 )
 
 [node name="Button2" parent="Plates" instance=ExtResource( 11 )]
-position = Vector2( 2122.27, 896.209 )
+position = Vector2( 2240, 960 )
 scale = Vector2( 2, 2 )
+out = 4
 
 [node name="Button3" parent="Plates" instance=ExtResource( 11 )]
-position = Vector2( 12402.6, 5384.38 )
+position = Vector2( 12480, 5440 )
+scale = Vector2( 2, 2 )
+out = 5
+
+[node name="Button4" parent="Plates" instance=ExtResource( 11 )]
+position = Vector2( 6732.07, 9264.57 )
+scale = Vector2( 2, 2 )
+out = 6
+
+[node name="temp" parent="Plates" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 6720, 960 )
+scale = Vector2( 2, 2 )
+out = 8
+
+[node name="Door" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door2" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 960, 1600 )
+rotation = 1.5708
 scale = Vector2( 2, 2 )
 
-[node name="Button4" type="Area2D" parent="Plates"]
-position = Vector2( 6732.07, 9264.57 )
+[node name="Door" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 6720, 2240 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Door3" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 6720, 6080 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Door4" parent="Door" instance=ExtResource( 15 )]
+position = Vector2( 10560, 5440 )
 scale = Vector2( 2, 2 )
 script = SubResource( 2 )
 
@@ -646,18 +345,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="GridBox" parent="TileWall" groups=[
-"Box",
-] instance=ExtResource( 9 )]
+[node name="GridBox" parent="TileWall" instance=ExtResource( 9 )]
 position = Vector2( 7730.66, 8968.57 )
 scale = Vector2( 2, 2 )
-collision_layer = 256
 collision_mask = 1027
 
-[node name="GridBox2" parent="TileWall" groups=[
-"Box",
-] instance=ExtResource( 9 )]
-position = Vector2( 6690.26, 4672.69 )
+[node name="GridBox2" parent="TileWall" instance=ExtResource( 9 )]
+position = Vector2( 6400, 4480 )
 scale = Vector2( 2, 2 )
 
 [node name="GridBox3" parent="TileWall" groups=[
@@ -673,7 +367,7 @@ position = Vector2( 11520, 5120 )
 scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9501.29, 9269.92 )
+position = Vector2( 9600, 9280 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -682,11 +376,15 @@ limit_left = 0
 limit_top = 0
 limit_right = 14080
 limit_bottom = 10240
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MainEnemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 13114.4, 8118.45 )
 
 [node name="Lights" type="Node2D" parent="."]
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -748,42 +446,11 @@ script = SubResource( 16 )
 
 [node name="Light12" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 1920 )
-script = SubResource( 17 )
+scale = Vector2( 1, 1 )
 
 [node name="Light13" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 4480, 2560 )
-script = SubResource( 18 )
-
-[node name="Door" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Door2" parent="Door" instance=ExtResource( 15 )]
-position = Vector2( 960.31, 1603.4 )
-scale = Vector2( 4, 4 )
-script = SubResource( 19 )
-
-[node name="Door" parent="Door" instance=ExtResource( 15 )]
-position = Vector2( 6720.15, 1603.4 )
-scale = Vector2( 4, 4 )
-script = SubResource( 20 )
-
-[node name="Door3" type="StaticBody2D" parent="Door"]
-position = Vector2( 6720, 6080 )
-scale = Vector2( 4, 4 )
-script = SubResource( 21 )
-
-[node name="Sprite" type="Sprite" parent="Door/Door3"]
-texture = ExtResource( 14 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Door3"]
-shape = SubResource( 22 )
-
-[node name="Door4" parent="Door" instance=ExtResource( 15 )]
-position = Vector2( 10560, 5440 )
-scale = Vector2( 4, 4 )
-script = SubResource( 23 )
+scale = Vector2( 1, 1 )
 
 [node name="EnemyStart" type="Area2D" parent="."]
 __meta__ = {
@@ -793,6 +460,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStart"]
 position = Vector2( 7993.02, 8330.57 )
 shape = SubResource( 24 )
+
+[node name="BodySuit" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6720, 960 )
 
 [node name="Overlay" type="TileMap" parent="."]
 visible = false
@@ -806,30 +476,21 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="Health" parent="HUD" instance=ExtResource( 7 )]
 position = Vector2( 240, 80 )
-
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 6720, 960 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 14 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="plate_press" from="Plates/LightPlate" to="Lights/Light6" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate2" to="Lights/Light8" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate3" to="Lights/Light9" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate4" to="Lights/Light" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate4" to="Lights/Light11" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate5" to="Lights/Light3" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate5" to="Lights/Light4" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate5" to="Lights/Light2" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate6" to="Lights/Light13" method="turn_on"]
-[connection signal="plate_press" from="Plates/LightPlate7" to="Lights/Light10" method="turn_on"]
+[connection signal="plate_press" from="Plates/LightPlate" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate2" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate3" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate4" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate5" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate6" to="Plates" method="lights_handler"]
+[connection signal="plate_press" from="Plates/LightPlate7" to="Plates" method="lights_handler"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Lights/Light12" method="perm_on"]
-[connection signal="button_press" from="Plates/Button2" to="Door/Door4" method="open"]
 [connection signal="button_press" from="Plates/Button2" to="Lights/Light7" method="perm_on"]
+[connection signal="button_press" from="Plates/Button2" to="Door/Door4" method="open"]
 [connection signal="button_press" from="Plates/Button3" to="Door/Door" method="open"]
-[connection signal="body_entered" from="Plates/Button4" to="Plates/Button4" method="_on_Button_body_entered"]
-[connection signal="body_exited" from="Plates/Button4" to="Plates/Button4" method="_on_Button_body_exited"]
-[connection signal="button_press" from="Plates/Button4" to="Door/Door3" method="open"]
+[connection signal="button_press" from="Plates/Button3" to="Lights/Light8" method="perm_on"]
 [connection signal="button_press" from="Plates/Button4" to="Lights/Light5" method="perm_on"]
+[connection signal="button_press" from="Plates/Button4" to="Door/Door3" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="body_exited" from="EnemyStart" to="." method="_on_EnemyStart_body_exited"]

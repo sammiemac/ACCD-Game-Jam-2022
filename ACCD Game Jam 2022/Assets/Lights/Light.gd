@@ -2,7 +2,7 @@ extends Node2D
 
 
 #export var turn_on = false
-export var LightRadius = 2
+var lightRadius = 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -12,7 +12,7 @@ export var LightRadius = 2
 #	elif not turn_on:
 #		$Light2D.visible = false
 func _ready():
-	$Light2D.texture_scale = LightRadius
+	$Light2D.texture_scale = lightRadius
 
 func turn_on():
 	$Light2D.visible = true
@@ -24,3 +24,4 @@ func _on_Timer_timeout():
 
 func perm_on():
 	$Light2D.visible = true
+	$Timer.set_paused(true)

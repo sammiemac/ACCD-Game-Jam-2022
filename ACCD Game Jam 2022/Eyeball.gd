@@ -1,27 +1,37 @@
 extends Node2D
 
 
+var going_up = true
 export var rotate_speed = 100
 
 onready var pointer = $Pointer
 onready var ray = $Pointer/Ray
-onready var player = TestLevel.get_node("Player")
-var target
+#onready var tree = get_tree()
+#onready var player = tree.get_node("Player")
 
 
 func _process(delta):
-	target = player.global_position
+	
+	if pointer.rotation_degrees >= 60:
+		going_up = false
+	elif pointer.rotation_degrees <= -60:
+		going_up = true
+	
+	if going_up:
+		pointer.rotation_degrees += rotate_speed * delta
+	elif not going_up:
+		pointer.rotation_degrees -= rotate_speed * delta
+	
 	if ray.is_colliding():
-		is_seen(target, delta)
-	else:
-		pointer.rotation_degrees += rotate_speed * delta
+		is_seen()
+		
 
-func is_seen(target, delta):
+func is_seen():
 	if ray.get_collider().is_in_group("Player"):
-		print("seen by 1")
+		print("seen player")
 #		emit_signal("seen")
-		pointer.rotation_degrees = get_angle_to(target)
-		look_at(target)
-	else:
+#		pointer.rotation_degrees = get_angle_to(target)
+#		look_at(target)
+#	else:
 #		emit_signal("not_seen")
-		pointer.rotation_degrees += rotate_speed * delta
+#		pointer.rotation_degrees += rotate_speed * delta

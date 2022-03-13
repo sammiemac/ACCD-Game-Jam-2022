@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=2]
@@ -8,15 +8,16 @@
 [ext_resource path="res://Levels/BoxRoom.gd" type="Script" id=6]
 [ext_resource path="res://Enemy/MainEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://Levels/Lights.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Door/Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Levels/BoxScript.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Item/AirTank.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Plate/LightPlate.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Spike/Permaspike.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/BAS/Button.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Tiles/TileBox.gd" type="Script" id=17]
+[ext_resource path="res://Levels/BoxScript.gd" type="Script" id=18]
 
 [sub_resource type="GDScript" id=12]
 script/source = "extends StaticBody2D
@@ -412,7 +413,7 @@ __meta__ = {
 }
 
 [node name="Plates" type="Node2D" parent="."]
-script = ExtResource( 11 )
+script = ExtResource( 18 )
 __meta__ = {
 "_edit_lock_": true,
 "_editor_description_": "Manually use match to use light functions"
@@ -449,7 +450,7 @@ scale = Vector2( 2, 2 )
 out = 6
 
 [node name="Button" parent="Plates" instance=ExtResource( 16 )]
-position = Vector2( 8640, 3510.49 )
+position = Vector2( 8640, 3520 )
 scale = Vector2( 2, 2 )
 
 [node name="Permaspike" type="Node2D" parent="."]
@@ -477,17 +478,12 @@ __meta__ = {
 [node name="Door" parent="Door" instance=ExtResource( 10 )]
 position = Vector2( 4160, 2240 )
 scale = Vector2( 4, 4 )
-script = SubResource( 12 )
+collision_layer = 128
 
 [node name="Door2" parent="Door" instance=ExtResource( 10 )]
-position = Vector2( 8000, 2880 )
-scale = Vector2( 4, 4 )
-script = SubResource( 13 )
-
-[node name="icon" type="Sprite" parent="Door/Door2"]
-position = Vector2( -320, -320 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 9 )
+position = Vector2( 8000, 2560 )
+scale = Vector2( 2, 2 )
+collision_layer = 128
 
 [node name="TileWall" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -645,11 +641,14 @@ limit_bottom = 10240
 
 [node name="MainEnemy" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1042.97, 1125.45 )
+enemy_speed = 800
 
 [node name="Lights" type="Node2D" parent="."]
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
+LightsRadius = 3
 
 [node name="Light" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 5760, 1600 )
@@ -706,6 +705,9 @@ position = Vector2( 1920, 4480 )
 scale = Vector2( 1, 1 )
 script = SubResource( 11 )
 
+[node name="AirTank" parent="." instance=ExtResource( 11 )]
+position = Vector2( 6720, 1600 )
+
 [node name="Overlay" type="TileMap" parent="."]
 modulate = Color( 1, 1, 1, 0.498039 )
 tile_set = ExtResource( 4 )
@@ -718,12 +720,6 @@ tile_data = PoolIntArray( 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65
 [node name="Health" parent="HUD" instance=ExtResource( 3 )]
 position = Vector2( 240, 80 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="plate_press" from="Plates/LightPlate" to="Plates" method="lights_handler"]
-[connection signal="plate_press" from="Plates/LightPlate2" to="Plates" method="lights_handler"]
-[connection signal="plate_press" from="Plates/LightPlate3" to="." method="lights_handler"]
-[connection signal="plate_press" from="Plates/LightPlate4" to="." method="lights_handler"]
-[connection signal="plate_press" from="Plates/LightPlate5" to="." method="lights_handler"]
-[connection signal="plate_press" from="Plates/LightPlate6" to="." method="lights_handler"]
-[connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]

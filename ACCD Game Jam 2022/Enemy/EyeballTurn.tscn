@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Eyeball.gd" type="Script" id=1]
 [ext_resource path="res://Enemy/urch_eye3.png" type="Texture" id=2]
-[ext_resource path="res://Enemy/urch_body1.png" type="Texture" id=3]
-[ext_resource path="res://Enemy/cone2.png" type="Texture" id=4]
+[ext_resource path="res://Enemy/urchin_body5.png" type="Texture" id=3]
+[ext_resource path="res://Enemy/eye_ray.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 63.7436
@@ -11,7 +11,8 @@ radius = 63.7436
 [sub_resource type="CircleShape2D" id=2]
 radius = 167.822
 
-[node name="Eyeball" type="KinematicBody2D"]
+[node name="EyeballTurn" type="KinematicBody2D"]
+scale = Vector2( -1, 1 )
 collision_layer = 4
 script = ExtResource( 1 )
 
@@ -22,8 +23,10 @@ offset = Vector2( -8, -8 )
 [node name="Pointer" type="Node2D" parent="."]
 
 [node name="Beam" type="Light2D" parent="Pointer"]
+rotation = -1.5708
 texture = ExtResource( 4 )
-offset = Vector2( 512, 0 )
+offset = Vector2( 0, 1280 )
+energy = 0.5
 shadow_enabled = true
 
 [node name="Eye" type="Sprite" parent="Pointer"]
@@ -34,6 +37,8 @@ offset = Vector2( -8, -8 )
 [node name="Ray" type="RayCast2D" parent="Pointer"]
 enabled = true
 cast_to = Vector2( 1024, 0 )
+collision_mask = 259
+collide_with_areas = true
 
 [node name="UrchinCollision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

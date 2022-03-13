@@ -16,11 +16,13 @@ func _ready():
 # Presses iff the body is a player and enters the area
 func _on_PressurePlate_body_entered(body):
 	if body.is_in_group("Player"):
+		$PlateSprite.play("pressed")
 #		press = true
 		emit_signal("plate_press", out)
 
 # Unresses iff the body is a player and exits the area
 func _on_PressurePlate_body_exited(body):
 	if body.is_in_group("Player"):
+		$PlateSprite.play("default")
 #		press = false
 		emit_signal("plate_unpress", out)

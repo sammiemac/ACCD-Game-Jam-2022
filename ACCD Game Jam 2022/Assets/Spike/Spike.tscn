@@ -12,7 +12,7 @@
 [ext_resource path="res://Assets/Spike/sand1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Spike/sand2.png" type="Texture" id=11]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
@@ -20,21 +20,21 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "snap",
-"speed": 10.0
+"speed": 30.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 160, 4 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64.8748, 160 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 152, 152 )
 
 [node name="Spike" type="StaticBody2D"]
@@ -42,30 +42,30 @@ script = ExtResource( 4 )
 
 [node name="IdleAnim" type="AnimatedSprite" parent="."]
 visible = false
-frames = SubResource( 4 )
+frames = SubResource( 1 )
 playing = true
 
 [node name="SnapAnim" type="AnimatedSprite" parent="."]
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "snap"
-frame = 3
 playing = true
 
 [node name="IdleShape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 156 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="SnapShape" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
 
 [node name="SpikeHitbox" type="Area2D" parent="."]
 collision_layer = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 [connection signal="animation_finished" from="SnapAnim" to="." method="_on_SnapAnim_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="SpikeHitbox" to="." method="_on_SpikeHitbox_body_entered"]
