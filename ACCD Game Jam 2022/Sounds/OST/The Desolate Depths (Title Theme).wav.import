@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/The Desolate Depths (Title Theme).wav-8c5419173cf45ce98d1885fa15637a99.sample"
+
+[deps]
+
+source_file="res://Sounds/OST/The Desolate Depths (Title Theme).wav"
+dest_files=[ "res://.import/The Desolate Depths (Title Theme).wav-8c5419173cf45ce98d1885fa15637a99.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

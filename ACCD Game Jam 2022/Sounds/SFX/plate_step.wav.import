@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/plate_step.wav-8c12aa3642286027440480b3ca8cb923.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/plate_step.wav"
+dest_files=[ "res://.import/plate_step.wav-8c12aa3642286027440480b3ca8cb923.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

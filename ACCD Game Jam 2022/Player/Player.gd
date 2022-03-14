@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 # Variable for the players speed that can be edited in the inspector
-export var player_speed = 1280
+export var player_speed = 1400
 var speed = player_speed
 #export var move_speed : = 750.0
 export var push_speed : = 325.0
@@ -91,9 +91,9 @@ func check_box_collision(motion : Vector2) -> void:
 		return
 	var box : = get_slide_collision(0).collider as Box
 	if box:
-		box.push(push_speed * motion)
+		box.push(push_speed * motion, position)
 
-func damage(var knock):
+func damage(var _knock):
 	if not hit:
 		emit_signal("damaged")
 		hit = 1

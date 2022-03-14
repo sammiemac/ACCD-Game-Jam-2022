@@ -42,6 +42,11 @@ animations = [ {
 "name": "front_move",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "left_move",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "back_move",
@@ -50,11 +55,6 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "right_move",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "left_move",
 "speed": 5.0
 } ]
 
@@ -95,7 +95,6 @@ __meta__ = {
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
-texture_scale = 0.5
 energy = 0.7
 
 [node name="Timer" type="Timer" parent="."]

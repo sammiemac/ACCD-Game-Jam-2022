@@ -18,5 +18,6 @@ var active = 0
 
 func _on_PermaHitbox_body_entered(body):
 	if body.is_in_group("Player"):
+		$SFXHurt.play()
 		body.damage(false)
 #		set_collision_mask_bit(0, false)

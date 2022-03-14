@@ -1,16 +1,43 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#func _ready():
+#	if Global.levels_completed == 0:
+#		$BodySuit.visible = false
+#		$AirTank.visible = false
+#		$Helmet.visible = false
+#
+#	if Global.levels_completed == 1:
+#		$BodySuit.visible = true
+#		$AirTank.visible = false
+#		$Helmet.visible = false
+#
+#	if Global.levels_completed == 2:
+#		$BodySuit.visible = true
+#		$AirTank.visible = true
+#		$Helmet.visible = false
+#
+#	if Global.levels_completed == 3:
+#		$BodySuit.visible = true
+#		$AirTank.visible = true
+#		$Helmet.visible = true
+		
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Note_note_collected():
+	$SFXNote.play()
+	$AnimationPlayer.play("transition")
+
+
+func _on_SFXAmbience_finished():
+	$SFXAmbience.play()
+
+
+func _on_Music_finished():
+	$Music.play()
+
+
+func _on_SFXNote_finished():
+	get_tree().change_scene("res://Screens/End.tscn")

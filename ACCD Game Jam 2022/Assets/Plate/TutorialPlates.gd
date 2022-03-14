@@ -11,7 +11,7 @@ onready var light42 = $Lights4/Light42
 onready var plate = $Plates/PressurePlate/PlateSprite
 
 
-func _on_PressurePlate_plate_press():
+func _on_PressurePlate_plate_press(var num):
 	light11.turn_on()
 	light12.turn_on()
 	plate.play("pressed")

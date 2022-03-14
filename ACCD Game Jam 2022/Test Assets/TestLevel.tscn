@@ -12,8 +12,9 @@
 [ext_resource path="res://Assets/Box/BoxPhysics.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Box/nautilus.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Spike/Permaspike.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Enemy/Eyeball.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Enemy/EyeballSpin.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Test Assets/test_overlay1.png" type="Texture" id=14]
+
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )

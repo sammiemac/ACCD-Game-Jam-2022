@@ -1,39 +1,50 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
+[ext_resource path="res://Screens/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/PixelMusketeer-vEXO.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Screens/menu.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/OST/The Desolate Depths (Title Theme).wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/SFX/ui_select.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/SFX/ui_accept.wav" type="AudioStream" id=6]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.745098, 0.65098, 0.215686, 1 )
+[sub_resource type="DynamicFont" id=1]
+size = 192
+use_mipmaps = true
+extra_spacing_bottom = 1
+font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=2]
-Panel/styles/panel = SubResource( 1 )
+[sub_resource type="DynamicFont" id=2]
+size = 156
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 96
+size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 48
+size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 48
-font_data = ExtResource( 2 )
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.745098, 0.65098, 0.215686, 1 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 80
-font_data = ExtResource( 2 )
+[sub_resource type="Theme" id=6]
+Panel/styles/panel = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 256
+size = 96
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 128
+size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 128
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
 font_data = ExtResource( 2 )
 
 [node name="TitleScreen" type="Control"]
@@ -41,8 +52,96 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.18921
 margin_right = 1.18921
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -615.818
+margin_top = -478.409
+margin_right = -55.8179
+margin_bottom = 386.591
+custom_fonts/font = SubResource( 1 )
+text = "HEART
+of
+the
+ABYSS"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -753.317
+margin_top = 552.901
+margin_right = -297.317
+margin_bottom = 731.901
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.466667, 0.333333, 0.00392157, 1 )
+text = "JUMP"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="howto" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1566.0
+margin_top = 250.0
+margin_right = -1159.0
+margin_bottom = 327.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.466667, 0.333333, 0.00392157, 1 )
+text = "HOW TO PLAY"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="credits" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -768.0
+margin_top = -160.808
+margin_right = -515.0
+margin_bottom = -83.8076
+rect_pivot_offset = Vector2( 5.455, 0 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.466667, 0.333333, 0.00392157, 1 )
+text = "CREDITS"
+flat = true
+align = 2
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -56,7 +155,7 @@ margin_left = -800.0
 margin_top = -240.0
 margin_right = 800.0
 margin_bottom = 240.0
-theme = SubResource( 2 )
+theme = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -68,7 +167,7 @@ anchor_right = 0.5
 margin_left = -800.0
 margin_right = 800.0
 margin_bottom = 107.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
 text = "HOW TO PLAY"
 align = 1
@@ -86,7 +185,7 @@ margin_left = -640.0
 margin_top = -121.531
 margin_right = 640.0
 margin_bottom = -10.5311
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
 text = "Use WASD to 
 move your player."
@@ -98,14 +197,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -352.0
-margin_top = 11.2652
-margin_right = 352.0
-margin_bottom = 122.265
-custom_fonts/font = SubResource( 5 )
+margin_left = -359.0
+margin_top = 10.1052
+margin_right = 345.0
+margin_bottom = 121.105
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
-text = "Use SPACEBAR to 
-interact with objects."
+text = "Be wary of dangerous 
+creatures in the deep."
 align = 1
 valign = 1
 __meta__ = {
@@ -118,7 +217,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -112.0
 margin_bottom = -42.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color_disabled = Color( 0.231373, 0.121569, 0.0392157, 1 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
 text = "BACK"
@@ -137,7 +236,7 @@ margin_left = -800.0
 margin_top = -240.0
 margin_right = 800.0
 margin_bottom = 240.0
-theme = SubResource( 2 )
+theme = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -150,7 +249,7 @@ margin_left = -800.0
 margin_top = 128.0
 margin_right = 800.0
 margin_bottom = 235.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
 text = "CREDITS"
 align = 1
@@ -166,7 +265,7 @@ margin_left = 54.0
 margin_top = -198.0
 margin_right = 564.0
 margin_bottom = 198.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
 text = "PROGRAMMING
 Ryan Lu
@@ -190,7 +289,7 @@ margin_left = -566.0
 margin_top = -198.0
 margin_right = -54.0001
 margin_bottom = 198.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
 text = "ART DESIGN
 Tiffany Book
@@ -211,7 +310,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -246.929
 margin_bottom = -150.929
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color_disabled = Color( 0.231373, 0.121569, 0.0392157, 1 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
 text = "BACK"
@@ -220,47 +319,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="play" type="Button" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -297.0
-margin_right = 297.0
-margin_bottom = 289.0
-custom_fonts/font = SubResource( 7 )
-text = "PLAY"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true
 
-[node name="howto" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -401.5
-margin_top = -74.0
-margin_right = 401.5
-margin_bottom = 74.0
-custom_fonts/font = SubResource( 8 )
-text = "HOW TO PLAY"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="SFXSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
-[node name="credits" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -245.0
-margin_top = -416.0
-margin_right = 245.0
-margin_bottom = -268.0
-custom_fonts/font = SubResource( 9 )
-text = "CREDITS"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="SFXAccept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+[connection signal="mouse_entered" from="play" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="howto" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="howto" to="." method="_on_howto_pressed"]
+[connection signal="mouse_entered" from="credits" to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="HowTo/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Credits/Back" to="." method="_on_Back_pressed"]
