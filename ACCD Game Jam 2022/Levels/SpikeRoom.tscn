@@ -32,13 +32,16 @@ func _ready():
 	pass # Replace with function body.
 
 func open():
+	$SFXOpen.play()
 	set_collision_mask_bit(0, false)
 	visible = false		# door open
 
 
 
 func toggle():
+	$SFXOpen.play()
 	set_collision_mask_bit(0, !get_collision_mask_bit(0))
+	set_collision_layer_bit(7, !get_collision_layer_bit(7))
 	visible = !visible
 "
 
@@ -46,7 +49,6 @@ func toggle():
 script = ExtResource( 19 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="LevelNavigation" type="Navigation2D" parent="." groups=[
@@ -308,7 +310,7 @@ __meta__ = {
 [node name="GridBox" parent="TileWall" instance=ExtResource( 5 )]
 position = Vector2( 3840, 6400 )
 scale = Vector2( 2, 2 )
-collision_mask = 1539
+collision_mask = 1667
 
 [node name="GridBox2" parent="TileWall" instance=ExtResource( 5 )]
 position = Vector2( 8320, 640 )
@@ -354,10 +356,12 @@ position = Vector2( 6720, 8640 )
 
 [node name="SFXAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+volume_db = -15.0
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+volume_db = -10.0
 autoplay = true
 
 [node name="SFXTransition" type="AudioStreamPlayer" parent="."]
@@ -378,7 +382,11 @@ position = Vector2( 256, 70.5556 )
 [connection signal="button_press" from="BAS/Button2" to="Doors/Door2" method="open"]
 [connection signal="button_press" from="BAS/Button3" to="Doors/Door3" method="open"]
 [connection signal="button_press" from="BAS/Button4" to="Doors/Door" method="toggle"]
+[connection signal="button_press" from="BAS/Button4" to="Lights/Light" method="perm_on"]
 [connection signal="button_unpress" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
+[connection signal="collected" from="Helmet" to="Plates" method="lights_on"]
 [connection signal="collected" from="Helmet" to="." method="_on_Helmet_collected"]
+[connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]

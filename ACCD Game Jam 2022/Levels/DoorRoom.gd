@@ -61,3 +61,11 @@ func _on_SFXTransition_finished():
 #	Global.health = starting_health
 #	player_health = Global.health
 #	get_tree().change_scene("res://Levels/DoorRoom.tscn")
+
+
+func _on_SFXAmbience_finished():
+	$SFXAmbience.play()
+
+
+func _on_Music_finished():
+	$Music.play()

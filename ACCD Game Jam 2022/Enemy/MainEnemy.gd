@@ -55,6 +55,7 @@ func move():
 
 func _on_EnemyHitbox_body_entered(body):
 	if body.is_in_group("Player"):
+		$SFXEnemy.play()
 		body.damage(true)
 		set_collision_mask_bit(0, false)
 		hit = 1

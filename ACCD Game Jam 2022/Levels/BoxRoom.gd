@@ -36,6 +36,14 @@ func _on_Player_damaged():
 #	get_tree().change_scene("res://Levels/BoxRoom.tscn")
 
 
+func _on_SFXAmbience_finished():
+	$SFXAmbience.play()
+
+
+func _on_Music_finished():
+	$Music.play()
+
+
 func _on_AirTank_collected():
 	$MainEnemy.queue_free()
 #	Global.levels_completed += 1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Spike/starfish_plate.png" type="Texture" id=1]
+[ext_resource path="res://Sounds/SFX/spike_hurt.wav" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Spike/Permaspike.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -27,4 +28,8 @@ wait_time = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="SFXHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -5.0
 [connection signal="body_entered" from="PermaHitbox" to="." method="_on_PermaHitbox_body_entered"]

@@ -164,11 +164,12 @@ tile_data = PoolIntArray( -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 
 
 [node name="SFXAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -5.0
+volume_db = -10.0
 autoplay = true
 
 [node name="SFXTransition" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+volume_db = -5.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -178,5 +179,6 @@ wait_time = 2.0
 [connection signal="timeout" from="LightsPlates/Timer3" to="LightsPlates" method="_on_Timer3_timeout"]
 [connection signal="timeout" from="LightsPlates/Timer4" to="LightsPlates" method="_on_Timer4_timeout"]
 [connection signal="body_entered" from="Tunnel" to="." method="_on_Tunnel_body_entered"]
+[connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
 [connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

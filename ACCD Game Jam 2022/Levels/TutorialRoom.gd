@@ -14,3 +14,7 @@ func _on_Tunnel_body_entered(body):
 
 func _on_SFXTransition_finished():
 	get_tree().change_scene("res://Levels/DoorRoom.tscn")
+
+
+func _on_SFXAmbience_finished():
+	$SFXAmbience.play()

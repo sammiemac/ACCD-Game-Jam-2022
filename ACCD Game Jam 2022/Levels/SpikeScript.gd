@@ -8,6 +8,7 @@ func _ready():
 			child.connect("plate_press", self, "lights_handler")
 		elif child.is_in_group("Button"):
 			child.connect("button_press", self, "")
+		child.connect("collected", self, "lights_on")
 
 func lights_handler(var num):
 	var lightNode = get_parent().get_node("Lights")

@@ -18,6 +18,14 @@ func _process(delta):
 		get_tree().change_scene("res://Levels/SpikeRoom.tscn")
 
 
+func _on_SFXAmbience_finished():
+	$SFXAmbience.play()
+
+
+func _on_Music_finished():
+	$Music.play()
+
+
 # Remove one heart every time the player takes damage
 func _on_Player_damaged():
 	player_health -= 1
@@ -25,7 +33,7 @@ func _on_Player_damaged():
 
 
 func _on_Helmet_collected():
-	$MainEnemy.queue_free()
+	$Enemies/MainEnemy.queue_free()
 #	Global.levels_completed += 1
 	$SFXTransition.play()
 

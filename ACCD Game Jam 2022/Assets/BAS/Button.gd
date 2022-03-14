@@ -14,7 +14,9 @@ func _ready():
 
 # Presses iff the body is a box and enters the area
 func _on_Button_body_entered(body):
+
 	if body.is_in_group("Box"):
+		$SFXPress.play()
 		$BASSprite.play("pressed")
 #		press = true
 		emit_signal("button_press")

@@ -25,7 +25,6 @@
 script = ExtResource( 6 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0235294, 0.0313726, 0.027451, 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -233,6 +232,7 @@ limit_bottom = 10240
 
 [node name="MainEnemy" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1042.97, 1125.45 )
+scale = Vector2( 1.5, 1.5 )
 enemy_speed = 800
 
 [node name="Lights" type="Node2D" parent="."]
@@ -303,17 +303,20 @@ position = Vector2( 240, 80 )
 
 [node name="SFXAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
+volume_db = -10.0
 autoplay = true
 
 [node name="SFXTransition" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
-[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="collected" from="AirTank" to="." method="_on_AirTank_collected"]
+[connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]

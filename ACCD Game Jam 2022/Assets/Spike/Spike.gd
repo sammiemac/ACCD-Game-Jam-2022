@@ -49,4 +49,5 @@ func _on_SnapAnim_animation_finished():
 
 func _on_SpikeHitbox_body_entered(body):
 	if body.is_in_group("Player"):
+		$SFXHurt.play()
 		body.damage(false)

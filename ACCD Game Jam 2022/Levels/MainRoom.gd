@@ -27,4 +27,17 @@ extends Node2D
 
 
 func _on_Note_note_collected():
+	$SFXNote.play()
+	$AnimationPlayer.play("transition")
+
+
+func _on_SFXAmbience_finished():
+	$SFXAmbience.play()
+
+
+func _on_Music_finished():
+	$Music.play()
+
+
+func _on_SFXNote_finished():
 	get_tree().change_scene("res://Screens/End.tscn")

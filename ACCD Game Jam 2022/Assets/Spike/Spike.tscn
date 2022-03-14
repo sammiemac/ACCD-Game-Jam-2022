@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Spike/sand_striker8.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Spike/sand_striker2.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Spike/sand_striker7.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Spike/sand1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Spike/sand2.png" type="Texture" id=11]
+[ext_resource path="res://Sounds/SFX/spike_hurt.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,6 +40,7 @@ extents = Vector2( 152, 152 )
 
 [node name="Spike" type="StaticBody2D"]
 collision_layer = 512
+collision_mask = 0
 script = ExtResource( 4 )
 
 [node name="IdleAnim" type="AnimatedSprite" parent="."]
@@ -69,6 +71,10 @@ collision_layer = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHitbox"]
 shape = SubResource( 5 )
+
+[node name="SFXHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
 [connection signal="animation_finished" from="SnapAnim" to="." method="_on_SnapAnim_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="SpikeHitbox" to="." method="_on_SpikeHitbox_body_entered"]

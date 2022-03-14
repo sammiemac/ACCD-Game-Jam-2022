@@ -16,6 +16,7 @@ func _ready():
 # Presses iff the body is a player and enters the area
 func _on_PressurePlate_body_entered(body):
 	if body.is_in_group("Player"):
+		$SFXPress.play()
 		$PlateSprite.play("pressed")
 #		press = true
 		emit_signal("plate_press", out)

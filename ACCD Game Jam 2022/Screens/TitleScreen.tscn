@@ -197,14 +197,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -352.0
-margin_top = 11.2652
-margin_right = 352.0
-margin_bottom = 122.265
+margin_left = -359.0
+margin_top = 10.1052
+margin_right = 345.0
+margin_bottom = 121.105
 custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
-text = "Use SPACEBAR to 
-interact with objects."
+text = "Be wary of dangerous 
+creatures in the deep."
 align = 1
 valign = 1
 __meta__ = {
