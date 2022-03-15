@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Screens/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/PixelMusketeer-vEXO.ttf" type="DynamicFontData" id=2]
@@ -47,23 +47,47 @@ font_data = ExtResource( 2 )
 size = 80
 font_data = ExtResource( 2 )
 
+[sub_resource type="Animation" id=11]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, -80.0 ]
+}
+
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.18921
-margin_right = 1.18921
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="BG" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 3 )
+expand = true
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -73,9 +97,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -615.818
-margin_top = -478.409
+margin_top = -435.755
 margin_right = -55.8179
-margin_bottom = 386.591
+margin_bottom = 429.245
 custom_fonts/font = SubResource( 1 )
 text = "HEART
 of
@@ -89,10 +113,10 @@ __meta__ = {
 [node name="play" type="Button" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -753.317
-margin_top = 552.901
-margin_right = -297.317
-margin_bottom = 731.901
+margin_left = -766.771
+margin_top = 597.469
+margin_right = -310.771
+margin_bottom = 776.469
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
@@ -109,10 +133,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -1566.0
-margin_top = 250.0
-margin_right = -1159.0
-margin_bottom = 327.0
+margin_left = -1571.05
+margin_top = 304.658
+margin_right = -1164.05
+margin_bottom = 381.658
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
@@ -130,9 +154,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -768.0
-margin_top = -160.808
+margin_top = -108.672
 margin_right = -515.0
-margin_bottom = -83.8076
+margin_bottom = -31.672
 rect_pivot_offset = Vector2( 5.455, 0 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -329,6 +353,9 @@ stream = ExtResource( 5 )
 
 [node name="SFXAccept" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+anims/FadeOut = SubResource( 11 )
 [connection signal="mouse_entered" from="play" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="howto" to="." method="_on_mouse_entered"]
@@ -337,3 +364,4 @@ stream = ExtResource( 6 )
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="HowTo/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="Credits/Back" to="." method="_on_Back_pressed"]
+[connection signal="animation_finished" from="Transition" to="." method="_on_Transition_animation_finished"]
