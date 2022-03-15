@@ -78,9 +78,6 @@ tracks/1/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BG" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -117,10 +114,10 @@ margin_left = -766.771
 margin_top = 597.469
 margin_right = -310.771
 margin_bottom = 776.469
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
 custom_colors/font_color_pressed = Color( 0.466667, 0.333333, 0.00392157, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "JUMP"
 flat = true
 align = 0
@@ -137,10 +134,10 @@ margin_left = -1571.05
 margin_top = 304.658
 margin_right = -1164.05
 margin_bottom = 381.658
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
 custom_colors/font_color_pressed = Color( 0.466667, 0.333333, 0.00392157, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "HOW TO PLAY"
 flat = true
 align = 2
@@ -158,10 +155,10 @@ margin_top = -108.672
 margin_right = -515.0
 margin_bottom = -31.672
 rect_pivot_offset = Vector2( 5.455, 0 )
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.843137, 0.623529, 0.0823529, 1 )
 custom_colors/font_color_pressed = Color( 0.466667, 0.333333, 0.00392157, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "CREDITS"
 flat = true
 align = 2
@@ -191,8 +188,8 @@ anchor_right = 0.5
 margin_left = -800.0
 margin_right = 800.0
 margin_bottom = 107.0
-custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "HOW TO PLAY"
 align = 1
 valign = 1
@@ -209,8 +206,8 @@ margin_left = -640.0
 margin_top = -121.531
 margin_right = 640.0
 margin_bottom = -10.5311
-custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+custom_fonts/font = SubResource( 8 )
 text = "Use WASD to 
 move your player."
 align = 1
@@ -225,8 +222,8 @@ margin_left = -359.0
 margin_top = 10.1052
 margin_right = 345.0
 margin_bottom = 121.105
-custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+custom_fonts/font = SubResource( 9 )
 text = "Be wary of dangerous 
 creatures in the deep."
 align = 1
@@ -241,9 +238,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -112.0
 margin_bottom = -42.0
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color_disabled = Color( 0.231373, 0.121569, 0.0392157, 1 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "BACK"
 flat = true
 __meta__ = {
@@ -273,8 +270,8 @@ margin_left = -800.0
 margin_top = 128.0
 margin_right = 800.0
 margin_bottom = 235.0
-custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "CREDITS"
 align = 1
 valign = 1
@@ -289,8 +286,8 @@ margin_left = 54.0
 margin_top = -198.0
 margin_right = 564.0
 margin_bottom = 198.0
-custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+custom_fonts/font = SubResource( 8 )
 text = "PROGRAMMING
 Ryan Lu
 Sam Macaraniag
@@ -313,8 +310,8 @@ margin_left = -566.0
 margin_top = -198.0
 margin_right = -54.0001
 margin_bottom = 198.0
-custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.4, 0.254902, 0.145098, 1 )
+custom_fonts/font = SubResource( 9 )
 text = "ART DESIGN
 Tiffany Book
 Jiahn Chung
@@ -334,9 +331,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -246.929
 margin_bottom = -150.929
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color_disabled = Color( 0.231373, 0.121569, 0.0392157, 1 )
 custom_colors/font_color = Color( 0.231373, 0.121569, 0.0392157, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "BACK"
 flat = true
 __meta__ = {
@@ -356,6 +353,7 @@ stream = ExtResource( 6 )
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 anims/FadeOut = SubResource( 11 )
+
 [connection signal="mouse_entered" from="play" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="howto" to="." method="_on_mouse_entered"]

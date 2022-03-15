@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Levels/TutorialRoom.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=2]
@@ -13,8 +13,11 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Plate/LightPlate.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Lights/Light.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Tiles/TileBox.gd" type="Script" id=14]
 [ext_resource path="res://Sounds/OST/water_ambience.wav" type="AudioStream" id=15]
 [ext_resource path="res://Sounds/SFX/scene_transition.wav" type="AudioStream" id=16]
+[ext_resource path="res://Levels/Lights.gd" type="Script" id=17]
+[ext_resource path="res://Levels/TutorialPlates.gd" type="Script" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
@@ -202,7 +205,6 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 script = ExtResource( 1 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0235294, 0.0313726, 0.027451, 1 )
 
 [node name="TileFloor" type="TileMap" parent="."]
@@ -233,13 +235,10 @@ scale = Vector2( 2, 2 )
 position = Vector2( 960, 1600 )
 scale = Vector2( 2, 2 )
 
-[node name="GridBox" parent="BAS" instance=ExtResource( 9 )]
-position = Vector2( 1280, 2560 )
-scale = Vector2( 2, 2 )
-
 [node name="Plate" type="Node2D" parent="."]
+script = ExtResource( 18 )
 
-[node name="LightPlate" parent="Plate" instance=ExtResource( 12 )]
+[node name="LightPlate1" parent="Plate" instance=ExtResource( 12 )]
 position = Vector2( 1600, 6080 )
 scale = Vector2( 2, 2 )
 
@@ -248,21 +247,22 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 320, 320 )
 format = 1
 tile_data = PoolIntArray( -131070, 4, 0, -131069, 10, 0, -131068, 10, 0, -131067, 10, 0, -131066, 10, 0, -131065, 4, 0, -65534, 10, 0, -65533, 10, 0, -65532, 10, 0, -65531, 10, 0, -65530, 10, 0, -65529, 4, 0, 0, 36, 0, 1, 18, 0, 2, 13, 0, 3, 13, 0, 6, 13, 0, 7, 13, 0, 8, 20, 0, 9, 36, 0, 65536, 36, 0, 65537, 21, 0, 65538, 16, 0, 65539, 16, 0, 65542, 16, 0, 65543, 16, 0, 65544, 23, 0, 65545, 36, 0, 131072, 36, 0, 131073, 21, 0, 131080, 23, 0, 131081, 36, 0, 196608, 36, 0, 196609, 21, 0, 196616, 23, 0, 196617, 36, 0, 262144, 36, 0, 262145, 21, 0, 262152, 23, 0, 262153, 36, 0, 327680, 36, 0, 327681, 21, 0, 327688, 23, 0, 327689, 36, 0, 393216, 36, 0, 393217, 21, 0, 393224, 23, 0, 393225, 36, 0, 458752, 36, 0, 458753, 21, 0, 458760, 23, 0, 458761, 36, 0, 524288, 36, 0, 524289, 21, 0, 524296, 23, 0, 524297, 36, 0, 589824, 36, 0, 589825, 21, 0, 589832, 23, 0, 589833, 36, 0, 655360, 36, 0, 655361, 21, 0, 655368, 23, 0, 655369, 36, 0, 720896, 36, 0, 720897, 21, 0, 720904, 23, 0, 720905, 36, 0, 786432, 36, 0, 786433, 21, 0, 786440, 23, 0, 786441, 36, 0, 851968, 36, 0, 851969, 21, 0, 851976, 23, 0, 851977, 36, 0, 917504, 36, 0, 917505, 21, 0, 917512, 23, 0, 917513, 36, 0, 983040, 36, 0, 983041, 21, 0, 983048, 23, 0, 983049, 36, 0, 1048576, 36, 0, 1048577, 21, 0, 1048584, 23, 0, 1048585, 36, 0, 1114112, 36, 0, 1114113, 21, 0, 1114120, 23, 0, 1114121, 36, 0, 1179648, 36, 0, 1179649, 21, 0, 1179656, 23, 0, 1179657, 36, 0, 1245184, 36, 0, 1245185, 21, 0, 1245192, 23, 0, 1245193, 36, 0, 1310720, 36, 0, 1310721, 21, 0, 1310728, 23, 0, 1310729, 36, 0, 1376256, 36, 0, 1376257, 21, 0, 1376264, 23, 0, 1376265, 36, 0, 1441792, 36, 0, 1441793, 30, 0, 1441794, 31, 0, 1441799, 31, 0, 1441800, 32, 0, 1441801, 36, 0, 1507328, 36, 0, 1507329, 36, 0, 1507330, 36, 0, 1507335, 36, 0, 1507336, 36, 0, 1507337, 36, 0, 1572866, 36, 0, 1572867, 36, 0, 1572868, 36, 0, 1572869, 36, 0, 1572870, 36, 0, 1572871, 36, 0, 1638402, 36, 0, 1638403, 36, 0, 1638404, 36, 0, 1638405, 36, 0, 1638406, 36, 0, 1638407, 36, 0 )
+script = ExtResource( 14 )
+
+[node name="GridBox" parent="TileWall" instance=ExtResource( 9 )]
+position = Vector2( 1280, 2560 )
+scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1600, 7360 )
-player_speed = 200
 
-[node name="PlayerCamera" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 2, 2 )
-limit_left = -1280
-limit_top = -1600
-limit_right = 2560
-limit_bottom = 4160
-__meta__ = {
-"_edit_lock_": true
-}
+zoom = Vector2( 4, 4 )
+limit_left = -800
+limit_top = 0
+limit_right = 4800
+limit_bottom = 8320
 
 [node name="TileTunnel" type="TileMap" parent="."]
 tile_set = SubResource( 5 )
@@ -281,6 +281,7 @@ position = Vector2( 1920, 640 )
 rotation = -1.5708
 
 [node name="Lights" type="Node2D" parent="."]
+script = ExtResource( 17 )
 
 [node name="Light" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 2560, 6400 )
@@ -325,5 +326,7 @@ volume_db = -5.0
 stream = ExtResource( 15 )
 volume_db = -10.0
 autoplay = true
+
+[connection signal="plate_press" from="Plate/LightPlate1" to="Plate" method="lights_handler"]
 [connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
