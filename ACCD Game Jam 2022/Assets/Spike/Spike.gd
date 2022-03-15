@@ -16,15 +16,15 @@ func _process(delta):
 
 func idle():
 #	print("idle")
-	$SnapAnim.stop()
+	$SpikeAnim.play("idle")
 	
 	$SpikeHitbox/CollisionShape2D.disabled = true
 	$SpikeHitbox.set_collision_mask_bit(0, false)
 	
-	$IdleAnim.visible = true
-	$SnapAnim.visible = false
-	$IdleShape.disabled = false
-	$SnapShape.disabled = true
+#	$IdleAnim.visible = true
+#	$SnapAnim.visible = false
+#	$IdleShape.disabled = false
+#	$SnapShape.disabled = true
 	if $Timer.is_stopped():
 		$Timer.wait_time = timer
 		$Timer.start()
@@ -32,18 +32,19 @@ func idle():
 
 func _on_Timer_timeout():
 #	print("snap")
-	$SnapAnim.play("snap")
+	$SpikeAnim.play("snap")
 	
 	$SpikeHitbox/CollisionShape2D.disabled = false
 	$SpikeHitbox.set_collision_mask_bit(0, true)
+	$AnimationPlayer.play("Snap")
 	
-	$IdleAnim.visible = false
-	$SnapAnim.visible = true
-	$IdleShape.disabled = true
-	$SnapShape.disabled = false
+#	$IdleAnim.visible = false
+#	$SnapAnim.visible = true
+#	$IdleShape.disabled = true
+#	$SnapShape.disabled = false
 
 
-func _on_SnapAnim_animation_finished():
+func _on_SpikeAnim_animation_finished():
 	idle()
 
 

@@ -198,7 +198,6 @@ scale = Vector2( -1, 1 )
 
 [node name="Light4" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 5760 )
-scale = Vector2( 1, 1 )
 
 [node name="Light5" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 5760, 5120 )
@@ -210,7 +209,6 @@ scale = Vector2( -1, 1 )
 
 [node name="Light7" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 11520, 5120 )
-scale = Vector2( 1, 1 )
 
 [node name="Light8" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 7680, 1920 )
@@ -218,23 +216,18 @@ scale = Vector2( -1, 1 )
 
 [node name="Light9" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 10240, 1920 )
-scale = Vector2( 1, 1 )
 
 [node name="Light10" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 9600, 7040 )
-scale = Vector2( 1, 1 )
 
 [node name="Light11" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 12160, 7680 )
-scale = Vector2( 1, 1 )
 
 [node name="Light12" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 1920 )
-scale = Vector2( 1, 1 )
 
 [node name="Light13" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 4480, 2560 )
-scale = Vector2( 1, 1 )
 
 [node name="EnemyStart" type="Area2D" parent="."]
 __meta__ = {
@@ -282,8 +275,8 @@ volume_db = -10.0
 [connection signal="plate_press" from="Plates/LightPlate5" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate6" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate7" to="Plates" method="lights_handler"]
-[connection signal="button_press" from="Plates/Button" to="Lights/Light12" method="perm_on"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Lights/Light12" method="perm_on"]
 [connection signal="button_press" from="Plates/Button2" to="Lights/Light7" method="perm_on"]
 [connection signal="button_press" from="Plates/Button2" to="Door/Door4" method="open"]
 [connection signal="button_press" from="Plates/Button3" to="Lights/Light8" method="perm_on"]

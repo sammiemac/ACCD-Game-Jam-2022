@@ -49,6 +49,7 @@ func toggle():
 script = ExtResource( 19 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="LevelNavigation" type="Navigation2D" parent="." groups=[
@@ -161,59 +162,45 @@ scale = Vector2( 2, 2 )
 
 [node name="Light" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 2240, 3840 )
-scale = Vector2( 1, 1 )
 
 [node name="Light2" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 8320, 8320 )
-scale = Vector2( 1, 1 )
 
 [node name="Light3" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 4480, 7680 )
-scale = Vector2( 1, 1 )
 
 [node name="Light4" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 4480, 4480 )
-scale = Vector2( 1, 1 )
 
 [node name="Light5" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 8320, 3840 )
-scale = Vector2( 1, 1 )
 
 [node name="Light6" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 8320, 1280 )
-scale = Vector2( 1, 1 )
 
 [node name="Light14" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 9600, 1920 )
-scale = Vector2( 1, 1 )
 
 [node name="Light7" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 6400, 1280 )
-scale = Vector2( 1, 1 )
 
 [node name="Light8" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 3840, 1280 )
-scale = Vector2( 1, 1 )
 
 [node name="Light9" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1920, 1280 )
-scale = Vector2( 1, 1 )
 
 [node name="Light10" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1280, 6400 )
-scale = Vector2( 1, 1 )
 
 [node name="Light11" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 1280, 8960 )
-scale = Vector2( 1, 1 )
 
 [node name="Light12" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 3840, 10240 )
-scale = Vector2( 1, 1 )
 
 [node name="Light13" parent="Lights" instance=ExtResource( 13 )]
 position = Vector2( 8320, 10240 )
-scale = Vector2( 1, 1 )
 
 [node name="BAS" type="Node2D" parent="."]
 
@@ -368,6 +355,7 @@ autoplay = true
 stream = ExtResource( 20 )
 
 [node name="Overlay" type="TileMap" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 tile_set = ExtResource( 22 )
 cell_size = Vector2( 320, 320 )
@@ -381,12 +369,12 @@ position = Vector2( 256, 70.5556 )
 [connection signal="button_press" from="BAS/Button" to="Doors/Door4" method="open"]
 [connection signal="button_press" from="BAS/Button2" to="Doors/Door2" method="open"]
 [connection signal="button_press" from="BAS/Button3" to="Doors/Door3" method="open"]
-[connection signal="button_press" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="button_press" from="BAS/Button4" to="Lights/Light" method="perm_on"]
+[connection signal="button_press" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="button_unpress" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
-[connection signal="collected" from="Helmet" to="Plates" method="lights_on"]
 [connection signal="collected" from="Helmet" to="." method="_on_Helmet_collected"]
+[connection signal="collected" from="Helmet" to="Plates" method="lights_on"]
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]

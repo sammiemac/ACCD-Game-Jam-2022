@@ -7,7 +7,7 @@ func _ready():
 
 func _on_play_pressed():
 	$SFXAccept.play()
-	get_tree().change_scene("res://Levels/TutorialRoom.tscn")
+	$Transition.play("FadeOut")
 
 
 func _on_howto_pressed():
@@ -27,3 +27,7 @@ func _on_Back_pressed():
 
 func _on_mouse_entered():
 	$SFXSelect.play()
+
+
+func _on_Transition_animation_finished(anim_name):
+	get_tree().change_scene("res://Screens/IntroScene.tscn")
