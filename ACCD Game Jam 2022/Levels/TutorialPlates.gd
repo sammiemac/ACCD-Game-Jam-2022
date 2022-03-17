@@ -15,7 +15,6 @@ func lights_handler(var num):
 	match num:
 		1:
 			lightNode.get_node("Light").turn_on()
-			lightNode.get_node("Light1").turn_on()
 			lightNode.get_node("Light2").turn_on()
 			lightNode.get_node("Light3").turn_on()
 			lightNode.get_node("Light4").turn_on()
