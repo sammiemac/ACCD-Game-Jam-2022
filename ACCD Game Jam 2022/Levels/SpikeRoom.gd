@@ -4,6 +4,8 @@ extends Node2D
 var starting_health = Global.health
 var player_health = Global.health
 
+func _ready():
+	$LightsOff.visible = true
 
 func _process(delta):
 	if player_health == 2:
