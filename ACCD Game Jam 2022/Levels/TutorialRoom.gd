@@ -9,7 +9,7 @@ func _process(delta):
 	if Input.is_action_pressed("continue") and $Message/NoteBG.visible:
 		$Message/NoteBG.visible = false
 		$Player.freeze = false
-		emit_signal("message_read")
+		emit_signal("message_read")	#queue_pop
 	
 
 func _on_Tunnel_body_entered(body):

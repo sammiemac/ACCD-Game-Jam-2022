@@ -118,10 +118,11 @@ func damage(var _knock):
 
 	speed = player_speed / 2
 	
-	Input.action_release("move_down")
-	Input.action_release("move_left")
-	Input.action_release("move_right")
-	Input.action_release("move_up")
+	# eats movement
+#	Input.action_release("move_down")
+#	Input.action_release("move_left")
+#	Input.action_release("move_right")
+#	Input.action_release("move_up")
 	
 	set_collision_mask_bit(2, false)
 	# Take damage here
