@@ -8,6 +8,7 @@ var player_health = Global.health
 # When entering scene, turn off enemy
 func _ready():
 	$MainEnemy.enemy_on = false
+	$LightsOff.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

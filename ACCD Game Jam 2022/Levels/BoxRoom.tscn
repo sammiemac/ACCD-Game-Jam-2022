@@ -25,12 +25,15 @@
 script = ExtResource( 6 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.0235294, 0.0313726, 0.027451, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LevelNavigation" type="Navigation2D" parent="." groups=["LevelNavigation"]]
+[node name="LevelNavigation" type="Navigation2D" parent="." groups=[
+"LevelNavigation",
+]]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -298,7 +301,6 @@ autoplay = true
 
 [node name="SFXTransition" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
-
 [connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]

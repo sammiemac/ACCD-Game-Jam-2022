@@ -6,6 +6,8 @@ var starting_health = Global.health
 # Sets the player health
 var player_health = starting_health
 
+func _ready():
+	$LightsOff.visible = true
 
 # Detects if the player has taken damage
 func _process(delta):

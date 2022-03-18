@@ -27,9 +27,12 @@ extents = Vector2( 397.975, 10 )
 script = ExtResource( 5 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
-[node name="LevelNavigation" type="Navigation2D" parent="." groups=["LevelNavigation"]]
+[node name="LevelNavigation" type="Navigation2D" parent="." groups=[
+"LevelNavigation",
+]]
 
 [node name="TileFloor" type="TileMap" parent="LevelNavigation"]
 tile_set = ExtResource( 2 )
@@ -266,7 +269,6 @@ stream = ExtResource( 16 )
 volume_db = -10.0
 
 [node name="Timer" type="Timer" parent="."]
-
 [connection signal="plate_press" from="Plates/LightPlate" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate2" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate3" to="Plates" method="lights_handler"]
@@ -274,12 +276,12 @@ volume_db = -10.0
 [connection signal="plate_press" from="Plates/LightPlate5" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate6" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate7" to="Plates" method="lights_handler"]
-[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Lights/Light12" method="perm_on"]
-[connection signal="button_press" from="Plates/Button2" to="Door/Door4" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
 [connection signal="button_press" from="Plates/Button2" to="Lights/Light7" method="perm_on"]
-[connection signal="button_press" from="Plates/Button3" to="Door/Door" method="open"]
+[connection signal="button_press" from="Plates/Button2" to="Door/Door4" method="open"]
 [connection signal="button_press" from="Plates/Button3" to="Lights/Light8" method="perm_on"]
+[connection signal="button_press" from="Plates/Button3" to="Door/Door" method="open"]
 [connection signal="button_press" from="Plates/Button4" to="Door/Door3" method="open"]
 [connection signal="button_press" from="Plates/Button4" to="Lights/Light5" method="perm_on"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
