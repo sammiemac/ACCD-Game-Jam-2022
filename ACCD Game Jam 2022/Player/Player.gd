@@ -6,6 +6,7 @@ export var player_speed = 1400
 var speed = player_speed
 #export var move_speed : = 750.0
 export var push_speed : = 325.0
+var freeze = false
 
 #export var knockback_force = 50
 # Variable for player's velocity for movement
@@ -138,5 +139,8 @@ func _on_Timer_timeout():
 
 # Calling the get_input function per frame (delta)
 func _physics_process(_delta):
-	get_input()
-	velocity = move_and_slide(velocity)
+	if not freeze:
+		get_input()
+		velocity = move_and_slide(velocity)
+	else:
+		velocity = Vector2(0,0)
