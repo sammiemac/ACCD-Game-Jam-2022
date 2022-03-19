@@ -31,6 +31,7 @@ func _process(delta):
 func is_seen():
 	if ray.get_collider().is_in_group("Player"):
 		print("seen player")
+		ray.get_collider().damage(true)
 #		emit_signal("seen")
 #		pointer.rotation_degrees = get_angle_to(target)
 #		look_at(target)
