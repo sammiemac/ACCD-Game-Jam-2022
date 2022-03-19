@@ -232,7 +232,7 @@ limit_bottom = 10240
 [node name="MainEnemy" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1042.97, 1125.45 )
 scale = Vector2( 1.5, 1.5 )
-enemy_speed = 800
+enemy_speed = 640
 
 [node name="Lights" type="Node2D" parent="."]
 script = ExtResource( 9 )
@@ -301,8 +301,8 @@ autoplay = true
 
 [node name="SFXTransition" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
-[connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="collected" from="AirTank" to="." method="_on_AirTank_collected"]
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]

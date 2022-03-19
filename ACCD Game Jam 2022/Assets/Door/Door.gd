@@ -24,8 +24,8 @@ func open():
 
 
 func toggle():
-	$SFXOpen.play()
 	open = !open
+	$SFXOpen.play()
 	$Timer.start()
 
 
