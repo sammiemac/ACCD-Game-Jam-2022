@@ -26,7 +26,6 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "door_close"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -35,4 +34,8 @@ shape = SubResource( 2 )
 [node name="SFXOpen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -5.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="finished" from="SFXOpen" to="." method="_on_SFXOpen_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

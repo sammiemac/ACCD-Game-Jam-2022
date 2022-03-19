@@ -26,7 +26,6 @@ offset = Vector2( -8, -8 )
 rotation = -1.5708
 texture = ExtResource( 4 )
 offset = Vector2( 0, 1280 )
-energy = 0.5
 shadow_enabled = true
 
 [node name="Eye" type="Sprite" parent="Pointer"]

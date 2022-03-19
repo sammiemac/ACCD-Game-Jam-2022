@@ -27,9 +27,12 @@ extents = Vector2( 397.975, 10 )
 script = ExtResource( 5 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
-[node name="LevelNavigation" type="Navigation2D" parent="." groups=["LevelNavigation"]]
+[node name="LevelNavigation" type="Navigation2D" parent="." groups=[
+"LevelNavigation",
+]]
 
 [node name="TileFloor" type="TileMap" parent="LevelNavigation"]
 tile_set = ExtResource( 2 )
@@ -266,7 +269,6 @@ stream = ExtResource( 16 )
 volume_db = -10.0
 
 [node name="Timer" type="Timer" parent="."]
-
 [connection signal="plate_press" from="Plates/LightPlate" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate2" to="Plates" method="lights_handler"]
 [connection signal="plate_press" from="Plates/LightPlate3" to="Plates" method="lights_handler"]

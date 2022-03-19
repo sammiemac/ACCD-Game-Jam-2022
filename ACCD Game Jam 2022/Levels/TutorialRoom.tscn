@@ -21,7 +21,7 @@
 [ext_resource path="res://Assets/Note/Note.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Assets/Note/notepaper.png" type="Texture" id=20]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -48,7 +48,7 @@ tracks/1/keys = {
 "values": [ -80.0, -10.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "FadeOut"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -75,19 +75,19 @@ tracks/1/keys = {
 "values": [ -10.0, -80.0 ]
 }
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
-
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
+
+[sub_resource type="TileSet" id=7]
 0/name = "front door arch-front.png 0"
 0/texture = ExtResource( 8 )
 0/tex_offset = Vector2( 0, 0 )
@@ -98,14 +98,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
+0/shape = SubResource( 3 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -133,14 +133,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 2 )
+2/shape = SubResource( 4 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -154,14 +154,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 3 )
+3/shape = SubResource( 5 )
 3/shape_one_way = false
 3/shape_one_way_margin = 1.0
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -189,14 +189,14 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 5/navigation_offset = Vector2( 0, 0 )
 5/shape_offset = Vector2( 0, 0 )
 5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 4 )
+5/shape = SubResource( 6 )
 5/shape_one_way = false
 5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -257,15 +257,19 @@ points = PoolVector2Array( 320, 320, 0, 320, 0, 0, 320, 0 )
 9/shapes = [  ]
 9/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 142, 183.827 )
 
 [node name="Room0" type="Node2D"]
+modulate = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Add health"
+}
 
 [node name="Transition" type="AnimationPlayer" parent="."]
-anims/FadeIn = SubResource( 6 )
-anims/FadeOut = SubResource( 8 )
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 2 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
 visible = false
@@ -345,7 +349,7 @@ scale = Vector2( 2, 2 )
 position = Vector2( 1600, 6720 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1600, 7360 )
+position = Vector2( 1585.75, 7352.87 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -356,7 +360,7 @@ limit_right = 4800
 limit_bottom = 8320
 
 [node name="TileTunnel" type="TileMap" parent="."]
-tile_set = SubResource( 5 )
+tile_set = SubResource( 7 )
 cell_size = Vector2( 320, 320 )
 format = 1
 tile_data = PoolIntArray( 1441795, 0, 0, 1441796, 1, 0, 1441797, 1, 0, 1441798, 2, 0, 1507331, 3, 0, 1507332, 4, 0, 1507333, 4, 0, 1507334, 5, 0 )
@@ -366,7 +370,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tunnel"]
 position = Vector2( 1600, 134 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Door" type="Node2D" parent="."]
 __meta__ = {
@@ -428,12 +432,13 @@ volume_db = -5.0
 
 [node name="SFXAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -10.0
+volume_db = -80.0
 autoplay = true
 
 [node name="Message" type="CanvasLayer" parent="."]
 
 [node name="NoteBG" type="TextureRect" parent="Message"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 20 )
@@ -455,10 +460,12 @@ margin_bottom = 24.0
 text = "Day 1
 
 Today's the day I start my search for the Heart of the Abyss! A prized treasurer for many divers..."
+[connection signal="message_read" from="." to="Note" method="_on_Message_note_clear"]
 [connection signal="button_press" from="BAS/Button" to="Door/Door" method="open"]
 [connection signal="button_press" from="BAS/Button" to="Door/Door2" method="open"]
 [connection signal="plate_press" from="Plate/LightPlate1" to="Plate" method="lights_handler"]
 [connection signal="plate_press" from="Plate/LightPlate2" to="Plate" method="lights_handler"]
+[connection signal="note_collected" from="Note" to="." method="_on_Note_note_collected"]
 [connection signal="body_entered" from="Tunnel" to="." method="_on_Tunnel_body_entered"]
 [connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
