@@ -1,12 +1,28 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Levels/MainRoom.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=2]
 [ext_resource path="res://Tiles/TileTunnel.tres" type="TileSet" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=5]
+[ext_resource path="res://Assets/Decor/coral7.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Decor/coral4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Decor/coral1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Decor/angler_entrance.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Decor/coral2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Decor/coral6.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Decor/coral3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Decor/coral5.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Decor/crabdoor.png" type="Texture" id=14]
 [ext_resource path="res://Sounds/OST/Widower (Main Room Theme).wav" type="AudioStream" id=15]
 [ext_resource path="res://Sounds/OST/water_ambience.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/MainDoor/vent-2.png" type="Texture" id=17]
 [ext_resource path="res://Sounds/SFX/note_pickup.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/MainDoor/vent-1.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Decor/coral8.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Item/AirTank.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Item/BodySuit.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/Item/Helmet.tscn" type="PackedScene" id=23]
 
 [node name="MainRoom" type="Node2D"]
 script = ExtResource( 1 )
@@ -42,6 +58,153 @@ autoplay = true
 [node name="SFXNote" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 volume_db = -10.0
+
+[node name="Decor" type="Node2D" parent="."]
+position = Vector2( 5867.14, 2926.71 )
+rotation = 3.14159
+scale = Vector2( 1.7176, -1.7176 )
+
+[node name="angler_entrance" type="Sprite" parent="Decor"]
+position = Vector2( 620.842, -1615.5 )
+rotation = 3.14159
+scale = Vector2( 1.15983, -1.15983 )
+texture = ExtResource( 9 )
+
+[node name="crabdoor" type="Sprite" parent="Decor"]
+position = Vector2( 640.941, -139.95 )
+rotation = 3.14159
+scale = Vector2( 1.27148, -1.27148 )
+texture = ExtResource( 14 )
+
+[node name="vent-1" type="Sprite" parent="Decor"]
+position = Vector2( 1304.97, 7.39417 )
+rotation = 3.14159
+scale = Vector2( 0.946088, -0.946088 )
+texture = ExtResource( 19 )
+
+[node name="vent-4" type="Sprite" parent="Decor"]
+position = Vector2( 2035.75, 478.734 )
+rotation = 3.14159
+scale = Vector2( 1.18484, -1.18484 )
+texture = ExtResource( 17 )
+
+[node name="vent-2" type="Sprite" parent="Decor"]
+texture = ExtResource( 19 )
+
+[node name="vent-3" type="Sprite" parent="Decor"]
+position = Vector2( -806.819, 462.856 )
+scale = Vector2( 1.18484, 1.18484 )
+texture = ExtResource( 17 )
+
+[node name="coral12" type="Sprite" parent="Decor"]
+position = Vector2( -179.486, 1763.17 )
+rotation = -3.14159
+scale = Vector2( 1.10679, -1.10679 )
+texture = ExtResource( 7 )
+
+[node name="coral11" type="Sprite" parent="Decor"]
+position = Vector2( 1353.06, 1722.75 )
+rotation = -3.14159
+scale = Vector2( 1.27193, -1.27193 )
+texture = ExtResource( 7 )
+
+[node name="coral8" type="Sprite" parent="Decor"]
+position = Vector2( 2239.07, 857.953 )
+rotation = 3.14159
+scale = Vector2( 1.1165, -1.1165 )
+texture = ExtResource( 20 )
+
+[node name="coral9" type="Sprite" parent="Decor"]
+position = Vector2( 997.126, 1954.35 )
+rotation = -3.14159
+scale = Vector2( 1.38851, -1.38851 )
+texture = ExtResource( 20 )
+
+[node name="coral7" type="Sprite" parent="Decor"]
+position = Vector2( 2055.7, 805.902 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 6 )
+
+[node name="coral4" type="Sprite" parent="Decor"]
+position = Vector2( -229.424, 361.454 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 7 )
+
+[node name="coral5" type="Sprite" parent="Decor"]
+position = Vector2( 1470.76, 187.193 )
+rotation = -3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 13 )
+
+[node name="coral3" type="Sprite" parent="Decor"]
+position = Vector2( 147.652, 380.77 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 12 )
+
+[node name="cora7" type="Sprite" parent="Decor"]
+position = Vector2( -1034.36, 874.099 )
+rotation = -3.14159
+scale = Vector2( 1.06793, -1.06793 )
+texture = ExtResource( 11 )
+
+[node name="coral2" type="Sprite" parent="Decor"]
+position = Vector2( -664.935, 597.876 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 10 )
+
+[node name="coral10" type="Sprite" parent="Decor"]
+position = Vector2( 258.83, 1974.55 )
+rotation = -3.14159
+scale = Vector2( 1.14565, -1.14565 )
+texture = ExtResource( 20 )
+
+[node name="coral1" type="Sprite" parent="Decor"]
+position = Vector2( 78.6799, 1866.38 )
+rotation = 8.74228e-08
+scale = Vector2( 1, 1.107 )
+texture = ExtResource( 8 )
+
+[node name="coral7" type="Sprite" parent="Decor/coral1"]
+position = Vector2( 574.846, -739.719 )
+scale = Vector2( 1.32968, 1.32968 )
+texture = ExtResource( 6 )
+
+[node name="cora6" type="Sprite" parent="Decor"]
+position = Vector2( 2392.13, 915.017 )
+rotation = 3.14159
+scale = Vector2( 0.708497, -0.708497 )
+texture = ExtResource( 11 )
+
+[node name="coral6" type="Sprite" parent="Decor"]
+position = Vector2( 1219.39, 1878.18 )
+rotation = -3.14159
+scale = Vector2( 0.951358, -0.951358 )
+texture = ExtResource( 8 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4792, 1160 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 4, 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KeyItems" type="Node2D" parent="."]
+
+[node name="AirTank" parent="KeyItems" instance=ExtResource( 21 )]
+position = Vector2( 5008, 4544 )
+
+[node name="BodySuit" parent="KeyItems" instance=ExtResource( 22 )]
+position = Vector2( 4512, 4576 )
+
+[node name="Helmet" parent="KeyItems" instance=ExtResource( 23 )]
+position = Vector2( 4784, 4560 )
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXNote" to="." method="_on_SFXNote_finished"]

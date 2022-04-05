@@ -5,6 +5,7 @@ signal message_read()
 func _ready():
 	$Transition.play("FadeIn")
 	$LightsOff.visible = true
+	Global.location = Global.Locations.TutorialR
 
 func _process(delta):
 	if Input.is_action_pressed("continue") and $Message/NoteBG.visible:
