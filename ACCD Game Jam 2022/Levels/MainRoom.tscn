@@ -199,12 +199,15 @@ __meta__ = {
 
 [node name="AirTank" parent="KeyItems" instance=ExtResource( 21 )]
 position = Vector2( 5008, 4544 )
+collectable = false
 
 [node name="BodySuit" parent="KeyItems" instance=ExtResource( 22 )]
 position = Vector2( 4512, 4576 )
+collectable = false
 
 [node name="Helmet" parent="KeyItems" instance=ExtResource( 23 )]
 position = Vector2( 4784, 4560 )
+collectable = false
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXNote" to="." method="_on_SFXNote_finished"]
