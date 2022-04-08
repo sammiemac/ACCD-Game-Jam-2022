@@ -2,11 +2,14 @@ extends Node2D
 
 
 var starting_health = Global.health
-var player_health = Global.health
+var player_health = starting_health #Global.health
 
 
 # When entering scene, turn off enemy
 func _ready():
+	starting_health = 3
+	player_health = starting_health
+	Global.location = Global.Locations.DoorR
 	$MainEnemy.enemy_on = false
 	$LightsOff.visible = true
 

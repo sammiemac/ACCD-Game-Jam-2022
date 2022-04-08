@@ -1,15 +1,28 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Levels/MainRoom.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=2]
 [ext_resource path="res://Tiles/TileTunnel.tres" type="TileSet" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=5]
-[ext_resource path="res://Tiles/middle_rock1.png" type="Texture" id=9]
-[ext_resource path="res://Tiles/crabdoor.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Decor/coral7.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Decor/coral4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Decor/coral1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Decor/angler_entrance.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Decor/coral2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Decor/coral6.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Decor/coral3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Decor/coral5.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Decor/crabdoor.png" type="Texture" id=14]
 [ext_resource path="res://Sounds/OST/Widower (Main Room Theme).wav" type="AudioStream" id=15]
 [ext_resource path="res://Sounds/OST/water_ambience.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/MainDoor/vent-2.png" type="Texture" id=17]
 [ext_resource path="res://Sounds/SFX/note_pickup.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/MainDoor/vent-1.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Decor/coral8.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Item/AirTank.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Item/BodySuit.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/Item/Helmet.tscn" type="PackedScene" id=23]
 
 [node name="MainRoom" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,36 +53,155 @@ autoplay = true
 stream = ExtResource( 18 )
 volume_db = -10.0
 
-[node name="middle_rock1" type="Sprite" parent="."]
-position = Vector2( 3520, 2240 )
+[node name="Decor" type="Node2D" parent="."]
+position = Vector2( 5867.14, 2926.71 )
+rotation = 3.14159
+scale = Vector2( 1.7176, -1.7176 )
+
+[node name="angler_entrance" type="Sprite" parent="Decor"]
+position = Vector2( 620.842, -1615.5 )
+rotation = 3.14159
+scale = Vector2( 1.15983, -1.15983 )
 texture = ExtResource( 9 )
 
+[node name="crabdoor" type="Sprite" parent="Decor"]
+position = Vector2( 640.941, -139.95 )
+rotation = 3.14159
+scale = Vector2( 1.27148, -1.27148 )
+texture = ExtResource( 14 )
+
+[node name="vent-1" type="Sprite" parent="Decor"]
+position = Vector2( 1304.97, 7.39417 )
+rotation = 3.14159
+scale = Vector2( 0.946088, -0.946088 )
+texture = ExtResource( 19 )
+
+[node name="vent-4" type="Sprite" parent="Decor"]
+position = Vector2( 2035.75, 478.734 )
+rotation = 3.14159
+scale = Vector2( 1.18484, -1.18484 )
+texture = ExtResource( 17 )
+
+[node name="vent-2" type="Sprite" parent="Decor"]
+texture = ExtResource( 19 )
+
+[node name="vent-3" type="Sprite" parent="Decor"]
+position = Vector2( -806.819, 462.856 )
+scale = Vector2( 1.18484, 1.18484 )
+texture = ExtResource( 17 )
+
+[node name="coral12" type="Sprite" parent="Decor"]
+position = Vector2( -179.486, 1763.17 )
+rotation = -3.14159
+scale = Vector2( 1.10679, -1.10679 )
+texture = ExtResource( 7 )
+
+[node name="coral11" type="Sprite" parent="Decor"]
+position = Vector2( 1353.06, 1722.75 )
+rotation = -3.14159
+scale = Vector2( 1.27193, -1.27193 )
+texture = ExtResource( 7 )
+
+[node name="coral8" type="Sprite" parent="Decor"]
+position = Vector2( 2239.07, 857.953 )
+rotation = 3.14159
+scale = Vector2( 1.1165, -1.1165 )
+texture = ExtResource( 20 )
+
+[node name="coral9" type="Sprite" parent="Decor"]
+position = Vector2( 997.126, 1954.35 )
+rotation = -3.14159
+scale = Vector2( 1.38851, -1.38851 )
+texture = ExtResource( 20 )
+
+[node name="coral7" type="Sprite" parent="Decor"]
+position = Vector2( 2055.7, 805.902 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 6 )
+
+[node name="coral4" type="Sprite" parent="Decor"]
+position = Vector2( -229.424, 361.454 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 7 )
+
+[node name="coral5" type="Sprite" parent="Decor"]
+position = Vector2( 1470.76, 187.193 )
+rotation = -3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 13 )
+
+[node name="coral3" type="Sprite" parent="Decor"]
+position = Vector2( 147.652, 380.77 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 12 )
+
+[node name="cora7" type="Sprite" parent="Decor"]
+position = Vector2( -1034.36, 874.099 )
+rotation = -3.14159
+scale = Vector2( 1.06793, -1.06793 )
+texture = ExtResource( 11 )
+
+[node name="coral2" type="Sprite" parent="Decor"]
+position = Vector2( -664.935, 597.876 )
+rotation = 3.14159
+scale = Vector2( 0.582209, -0.582209 )
+texture = ExtResource( 10 )
+
+[node name="coral10" type="Sprite" parent="Decor"]
+position = Vector2( 258.83, 1974.55 )
+rotation = -3.14159
+scale = Vector2( 1.14565, -1.14565 )
+texture = ExtResource( 20 )
+
+[node name="coral1" type="Sprite" parent="Decor"]
+position = Vector2( 78.6799, 1866.38 )
+rotation = 8.74228e-08
+scale = Vector2( 1, 1.107 )
+texture = ExtResource( 8 )
+
+[node name="coral7" type="Sprite" parent="Decor/coral1"]
+position = Vector2( 574.846, -739.719 )
+scale = Vector2( 1.32968, 1.32968 )
+texture = ExtResource( 6 )
+
+[node name="cora6" type="Sprite" parent="Decor"]
+position = Vector2( 2392.13, 915.017 )
+rotation = 3.14159
+scale = Vector2( 0.708497, -0.708497 )
+texture = ExtResource( 11 )
+
+[node name="coral6" type="Sprite" parent="Decor"]
+position = Vector2( 1219.39, 1878.18 )
+rotation = -3.14159
+scale = Vector2( 0.951358, -0.951358 )
+texture = ExtResource( 8 )
+
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 4640, 8480 )
+position = Vector2( 4792, 1160 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 8, 8 )
+zoom = Vector2( 4, 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="TileWall" type="TileMap" parent="."]
-tile_set = ExtResource( 5 )
-cell_size = Vector2( 320, 320 )
-format = 1
-tile_data = PoolIntArray( -65536, 36, 0, -65535, 36, 0, -65534, 36, 0, -65533, 36, 0, -65532, 36, 0, -65531, 36, 0, -65530, 36, 0, -65529, 36, 0, -65528, 36, 0, -65527, 36, 0, -65526, 36, 0, -65525, 36, 0, -65524, 36, 0, -65523, 36, 0, -65522, 36, 0, -65521, 36, 0, -65520, 36, 0, -65519, 36, 0, -65518, 36, 0, -65517, 36, 0, -65516, 36, 0, -65515, 36, 0, 0, 36, 0, 1, 36, 0, 2, 36, 0, 3, 36, 0, 4, 36, 0, 5, 36, 0, 6, 36, 0, 7, 36, 0, 8, 13, 0, 9, 13, 0, 10, 37, 0, 11, 38, 0, 12, 13, 0, 13, 13, 0, 14, 36, 0, 15, 36, 0, 16, 36, 0, 17, 36, 0, 18, 36, 0, 19, 36, 0, 20, 36, 0, 21, 36, 0, 65536, 36, 0, 65537, 36, 0, 65538, 36, 0, 65539, 36, 0, 65540, 36, 0, 65541, 36, 0, 65542, 36, 0, 65543, 36, 0, 65544, 16, 0, 65545, 16, 0, 65546, 39, 0, 65547, 40, 0, 65548, 16, 0, 65549, 16, 0, 65550, 36, 0, 65551, 36, 0, 65552, 36, 0, 65553, 36, 0, 65554, 36, 0, 65555, 36, 0, 65556, 36, 0, 65557, 36, 0, 131072, 36, 0, 131073, 18, 0, 131074, 13, 0, 131075, 13, 0, 131076, 37, 0, 131077, 38, 0, 131078, 13, 0, 131079, 14, 0, 131086, 12, 0, 131087, 13, 0, 131088, 37, 0, 131089, 38, 0, 131090, 13, 0, 131091, 13, 0, 131092, 20, 0, 131093, 36, 0, 196608, 36, 0, 196609, 24, 0, 196610, 16, 0, 196611, 16, 0, 196612, 39, 0, 196613, 40, 0, 196614, 16, 0, 196615, 17, 0, 196622, 15, 0, 196623, 16, 0, 196624, 39, 0, 196625, 40, 0, 196626, 16, 0, 196627, 16, 0, 196628, 26, 0, 196629, 36, 0, 262144, 36, 0, 262145, 24, 0, 262164, 26, 0, 262165, 36, 0, 327680, 36, 0, 327681, 24, 0, 327700, 26, 0, 327701, 36, 0, 393216, 36, 0, 393217, 24, 0, 393236, 26, 0, 393237, 36, 0, 458752, 36, 0, 458753, 24, 0, 458772, 26, 0, 458773, 36, 0, 524288, 36, 0, 524289, 30, 0, 524290, 31, 0, 524291, 27, 0, 524306, 29, 0, 524307, 31, 0, 524308, 32, 0, 524309, 36, 0, 589824, 36, 0, 589825, 36, 0, 589826, 36, 0, 589827, 21, 0, 589842, 23, 0, 589843, 36, 0, 589844, 36, 0, 589845, 36, 0, 655360, 36, 0, 655361, 36, 0, 655362, 36, 0, 655363, 30, 0, 655364, 34, 0, 655365, 34, 0, 655366, 34, 0, 655367, 34, 0, 655368, 34, 0, 655369, 27, 0, 655372, 29, 0, 655373, 34, 0, 655374, 34, 0, 655375, 34, 0, 655376, 34, 0, 655377, 34, 0, 655378, 32, 0, 655379, 36, 0, 655380, 36, 0, 655381, 36, 0, 720896, 36, 0, 720897, 36, 0, 720898, 36, 0, 720899, 36, 0, 720900, 36, 0, 720901, 36, 0, 720902, 36, 0, 720903, 36, 0, 720904, 36, 0, 720909, 36, 0, 720910, 36, 0, 720911, 36, 0, 720912, 36, 0, 720913, 36, 0, 720914, 36, 0, 720915, 36, 0, 720916, 36, 0, 720917, 36, 0, 786432, 36, 0, 786433, 36, 0, 786434, 36, 0, 786435, 36, 0, 786436, 36, 0, 786437, 36, 0, 786438, 36, 0, 786439, 36, 0, 786440, 36, 0, 786441, 36, 0, 786442, 36, 0, 786443, 36, 0, 786444, 36, 0, 786445, 36, 0, 786446, 36, 0, 786447, 36, 0, 786448, 36, 0, 786449, 36, 0, 786450, 36, 0, 786451, 36, 0, 786452, 36, 0, 786453, 36, 0, 851968, 36, 0, 851969, 36, 0, 851970, 36, 0, 851971, 36, 0, 851972, 36, 0, 851973, 36, 0, 851974, 36, 0, 851975, 36, 0, 851976, 36, 0, 851977, 36, 0, 851978, 36, 0, 851979, 36, 0, 851980, 36, 0, 851981, 36, 0, 851982, 36, 0, 851983, 36, 0, 851984, 36, 0, 851985, 36, 0, 851986, 36, 0, 851987, 36, 0, 851988, 36, 0, 851989, 36, 0 )
+[node name="KeyItems" type="Node2D" parent="."]
 
-[node name="Decorations" type="Node2D" parent="."]
+[node name="AirTank" parent="KeyItems" instance=ExtResource( 21 )]
+position = Vector2( 5008, 4544 )
+collectable = false
 
-[node name="crabdoor" type="Sprite" parent="."]
-position = Vector2( 3520, 320 )
-texture = ExtResource( 10 )
+[node name="BodySuit" parent="KeyItems" instance=ExtResource( 22 )]
+position = Vector2( 4512, 4576 )
+collectable = false
 
-[node name="crabdoor2" type="Sprite" parent="."]
-position = Vector2( 1600, 960 )
-texture = ExtResource( 10 )
-
-[node name="crabdoor3" type="Sprite" parent="."]
-position = Vector2( 5440, 960 )
-texture = ExtResource( 10 )
+[node name="Helmet" parent="KeyItems" instance=ExtResource( 23 )]
+position = Vector2( 4784, 4560 )
+collectable = false
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXNote" to="." method="_on_SFXNote_finished"]
