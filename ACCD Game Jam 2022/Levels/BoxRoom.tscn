@@ -25,6 +25,7 @@
 script = ExtResource( 6 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.0235294, 0.0313726, 0.027451, 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -113,12 +114,10 @@ __meta__ = {
 [node name="Door" parent="Door" instance=ExtResource( 10 )]
 position = Vector2( 4160, 2240 )
 scale = Vector2( 4, 4 )
-collision_layer = 128
 
 [node name="Door2" parent="Door" instance=ExtResource( 10 )]
 position = Vector2( 8000, 2560 )
 scale = Vector2( 2, 2 )
-collision_layer = 128
 
 [node name="TileWall" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -233,7 +232,7 @@ limit_bottom = 10240
 [node name="MainEnemy" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1042.97, 1125.45 )
 scale = Vector2( 1.5, 1.5 )
-enemy_speed = 800
+enemy_speed = 640
 
 [node name="Lights" type="Node2D" parent="."]
 script = ExtResource( 9 )
@@ -244,47 +243,36 @@ LightsRadius = 3
 
 [node name="Light" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 5760, 1600 )
-scale = Vector2( 1, 1 )
 
 [node name="Light2" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 7680, 1600 )
-scale = Vector2( 1, 1 )
 
 [node name="Light3" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 6400, 4480 )
-scale = Vector2( 1, 1 )
 
 [node name="Light4" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 7680, 4480 )
-scale = Vector2( 1, 1 )
 
 [node name="Light5" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 7680, 5760 )
-scale = Vector2( 1, 1 )
 
 [node name="Light6" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 6400, 5760 )
-scale = Vector2( 1, 1 )
 
 [node name="Light7" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 5120, 8320 )
-scale = Vector2( 1, 1 )
 
 [node name="Light8" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 2560, 8960 )
-scale = Vector2( 1, 1 )
 
 [node name="Light9" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 2560, 7040 )
-scale = Vector2( 1, 1 )
 
 [node name="Light10" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 1920, 1920 )
-scale = Vector2( 1, 1 )
 
 [node name="Light11" parent="Lights" instance=ExtResource( 12 )]
 position = Vector2( 1920, 4480 )
-scale = Vector2( 1, 1 )
 
 [node name="AirTank" parent="." instance=ExtResource( 11 )]
 position = Vector2( 6720, 1542.79 )
@@ -313,8 +301,8 @@ autoplay = true
 
 [node name="SFXTransition" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
-[connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
 [connection signal="button_press" from="Plates/Button" to="Door/Door2" method="open"]
+[connection signal="button_press" from="Plates/Button" to="Door/Door" method="open"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="collected" from="AirTank" to="." method="_on_AirTank_collected"]
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]

@@ -2,8 +2,13 @@ extends Node2D
 
 
 var starting_health = Global.health
-var player_health = Global.health
+var player_health = starting_health #Global.health
 
+func _ready():
+	starting_health = 3
+	player_health = starting_health
+	Global.location = Global.Locations.SpikeR
+	$LightsOff.visible = true
 
 func _process(delta):
 	if player_health == 2:

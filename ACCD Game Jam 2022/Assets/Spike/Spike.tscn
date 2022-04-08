@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Spike/sand_striker8.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Spike/sand_striker2.png" type="Texture" id=2]
@@ -20,14 +20,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "snap",
-"speed": 30.0
-} ]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "snap",
@@ -64,14 +56,7 @@ script = ExtResource( 4 )
 [node name="SpikeAnim" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "snap"
-frame = 3
-playing = true
-
-[node name="SnapAnim" type="AnimatedSprite" parent="."]
-visible = false
-frames = SubResource( 2 )
-animation = "snap"
-frame = 10
+frame = 11
 playing = true
 
 [node name="IdleShape" type="CollisionShape2D" parent="."]
@@ -95,7 +80,7 @@ volume_db = -5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Snap = SubResource( 6 )
+
 [connection signal="animation_finished" from="SpikeAnim" to="." method="_on_SpikeAnim_animation_finished"]
-[connection signal="animation_finished" from="SnapAnim" to="." method="_on_SnapAnim_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="SpikeHitbox" to="." method="_on_SpikeHitbox_body_entered"]

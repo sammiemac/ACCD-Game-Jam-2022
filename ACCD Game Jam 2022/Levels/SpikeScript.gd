@@ -31,6 +31,8 @@ func lights_handler(var num):
 			lightNode.get_node("Light10").turn_on()
 		7:
 			lightNode.get_node("Light11").turn_on()
+		8:
+			lightNode.get_node("Light4").turn_on()
 		_:
 			for child in lightNode.get_children(): 
 				child.perm_on()

@@ -6,6 +6,7 @@ export var player_speed = 1400
 var speed = player_speed
 #export var move_speed : = 750.0
 export var push_speed : = 325.0
+var freeze = false
 
 #export var knockback_force = 50
 # Variable for player's velocity for movement
@@ -117,10 +118,11 @@ func damage(var _knock):
 
 	speed = player_speed / 2
 	
-	Input.action_release("move_down")
-	Input.action_release("move_left")
-	Input.action_release("move_right")
-	Input.action_release("move_up")
+	# eats movement
+#	Input.action_release("move_down")
+#	Input.action_release("move_left")
+#	Input.action_release("move_right")
+#	Input.action_release("move_up")
 	
 	set_collision_mask_bit(2, false)
 	# Take damage here
@@ -138,5 +140,8 @@ func _on_Timer_timeout():
 
 # Calling the get_input function per frame (delta)
 func _physics_process(_delta):
-	get_input()
-	velocity = move_and_slide(velocity)
+	if not freeze:
+		get_input()
+		velocity = move_and_slide(velocity)
+	else:
+		velocity = Vector2(0,0)

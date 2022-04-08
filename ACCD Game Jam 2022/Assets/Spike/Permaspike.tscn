@@ -4,11 +4,12 @@
 [ext_resource path="res://Sounds/SFX/spike_hurt.wav" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Spike/Permaspike.gd" type="Script" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 161.296
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 125.54
+height = 38.1388
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 131.221
+radius = 72.7742
 
 [node name="Permaspike" type="StaticBody2D"]
 collision_layer = 512
@@ -21,12 +22,15 @@ texture = ExtResource( 1 )
 [node name="PermaHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PermaHitbox"]
+position = Vector2( 10.9231, 20.6006 )
+rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="ToggleTimer" type="Timer" parent="."]
 wait_time = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 12.4867, 9.51367 )
 shape = SubResource( 2 )
 
 [node name="SFXHurt" type="AudioStreamPlayer" parent="."]
