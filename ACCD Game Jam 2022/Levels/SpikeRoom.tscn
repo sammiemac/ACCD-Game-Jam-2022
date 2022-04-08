@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=1]
-[ext_resource path="res://Enemy/EyeballSpin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=4]
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemy/EyeballTurn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy/Eyeball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Item/Helmet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Plate/LightPlate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/BAS/Button.tscn" type="PackedScene" id=9]
@@ -309,21 +308,21 @@ scale = Vector2( 2, 2 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Eyeball" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 7360, 6080 )
-scale = Vector2( 2, 2 )
+[node name="MainEnemy" parent="Enemies" instance=ExtResource( 14 )]
+position = Vector2( 8717.82, 10051.6 )
+scale = Vector2( 1.5, 1.5 )
+enemy_speed = 540
 
 [node name="EyeballSpin" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 2880, 5440 )
+position = Vector2( 3008, 5440 )
 scale = Vector2( -2, 2 )
 rotate_speed = 50
 pointA = -60
 pointB = 60
 
-[node name="MainEnemy" parent="Enemies" instance=ExtResource( 14 )]
-position = Vector2( 8717.82, 10051.6 )
-scale = Vector2( 1.5, 1.5 )
-enemy_speed = 540
+[node name="EyeballSpin2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 7360, 6080 )
+scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 4800, 10560 )
@@ -370,8 +369,8 @@ position = Vector2( 256, 70.5556 )
 [connection signal="button_press" from="BAS/Button" to="Doors/Door4" method="open"]
 [connection signal="button_press" from="BAS/Button2" to="Doors/Door2" method="open"]
 [connection signal="button_press" from="BAS/Button3" to="Doors/Door3" method="open"]
-[connection signal="button_press" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="button_press" from="BAS/Button4" to="Lights/Light" method="perm_on"]
+[connection signal="button_press" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="button_unpress" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="collected" from="Helmet" to="." method="_on_Helmet_collected"]

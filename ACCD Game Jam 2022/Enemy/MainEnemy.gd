@@ -75,3 +75,8 @@ func _on_EnemyHitbox_body_entered(body):
 func _on_Timer_timeout():
 	set_collision_mask_bit(0, true)
 	hit = 0
+
+
+func _on_EnemyDetect_body_entered(body):
+	if body.is_in_group("Player"):
+		$SFXDetect.play()
