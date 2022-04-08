@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Enemy/MainEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Enemy/sand_shark_f1.png" type="Texture" id=2]
 [ext_resource path="res://Enemy/sand_shark_f2.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/SFX/enemy_attack.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/SFX/enemy_idle.wav" type="AudioStream" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,6 +20,9 @@ radius = 98.8038
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 159.274
 height = 185.999
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 864.194
 
 [node name="MainEnemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -54,11 +58,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="EnemyDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetect"]
+position = Vector2( 0, -152.827 )
+shape = SubResource( 4 )
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="SFXEnemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -5.0
+
+[node name="SFXDetect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
 [connection signal="body_entered" from="EnemyHitbox" to="." method="_on_EnemyHitbox_body_entered"]
+[connection signal="body_entered" from="EnemyDetect" to="." method="_on_EnemyDetect_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
