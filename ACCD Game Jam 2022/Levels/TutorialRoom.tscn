@@ -461,8 +461,8 @@ text = "Day 1
 
 Today's the day I start my search for the Heart of the Abyss! A prized treasurer for many divers..."
 [connection signal="message_read" from="." to="Note" method="_on_Message_note_clear"]
-[connection signal="button_press" from="BAS/Button" to="Door/Door" method="open"]
 [connection signal="button_press" from="BAS/Button" to="Door/Door2" method="open"]
+[connection signal="button_press" from="BAS/Button" to="Door/Door" method="open"]
 [connection signal="plate_press" from="Plate/LightPlate1" to="Plate" method="lights_handler"]
 [connection signal="plate_press" from="Plate/LightPlate2" to="Plate" method="lights_handler"]
 [connection signal="note_collected" from="Note" to="." method="_on_Note_note_collected"]
