@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=1]
+[ext_resource path="res://Levels/TransitionArea.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=4]
 [ext_resource path="res://Assets/Box/GridBox.tscn" type="PackedScene" id=5]
@@ -47,9 +48,12 @@ func toggle():
 script = ExtResource( 19 )
 
 [node name="LightsOff" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
-[node name="LevelNavigation" type="Navigation2D" parent="." groups=["LevelNavigation"]]
+[node name="LevelNavigation" type="Navigation2D" parent="." groups=[
+"LevelNavigation",
+]]
 
 [node name="TileFloor" type="TileMap" parent="LevelNavigation"]
 tile_set = ExtResource( 1 )
@@ -256,7 +260,9 @@ scale = Vector2( 2, 2 )
 position = Vector2( 3520, 1600 )
 scale = Vector2( 2, 2 )
 
-[node name="TileWall" type="TileMap" parent="." groups=["Wall"]]
+[node name="TileWall" type="TileMap" parent="." groups=[
+"Wall",
+]]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 320, 320 )
 collision_layer = 2
@@ -335,6 +341,9 @@ __meta__ = {
 [node name="Helmet" parent="." instance=ExtResource( 7 )]
 position = Vector2( 6720, 8640 )
 
+[node name="Entrance" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4796.22, 11175.9 )
+
 [node name="SFXAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = -15.0
@@ -348,20 +357,24 @@ autoplay = true
 [node name="SFXTransition" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 
+[node name="SFXTransition2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Health" parent="HUD" instance=ExtResource( 21 )]
 position = Vector2( 256, 70.5556 )
-
 [connection signal="button_press" from="BAS/Button" to="Doors/Door4" method="open"]
 [connection signal="button_press" from="BAS/Button2" to="Doors/Door2" method="open"]
 [connection signal="button_press" from="BAS/Button3" to="Doors/Door3" method="open"]
-[connection signal="button_press" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="button_press" from="BAS/Button4" to="Lights/Light" method="perm_on"]
+[connection signal="button_press" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="button_unpress" from="BAS/Button4" to="Doors/Door" method="toggle"]
 [connection signal="damaged" from="Player" to="." method="_on_Player_damaged"]
 [connection signal="collected" from="Helmet" to="." method="_on_Helmet_collected"]
 [connection signal="collected" from="Helmet" to="Plates" method="lights_on"]
+[connection signal="body_entered" from="Entrance" to="." method="_on_Entrance_body_entered"]
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXTransition" to="." method="_on_SFXTransition_finished"]
+[connection signal="finished" from="SFXTransition2" to="." method="_on_SFXTransition2_finished"]

@@ -2,18 +2,17 @@ extends Node2D
 
 
 var starting_health = Global.health
-var player_health = starting_health #Global.health
+var player_health = starting_health
 
 func _ready():
-	starting_health = 3
 	player_health = starting_health
 	Global.location = Global.Locations.SpikeR
 	$LightsOff.visible = true
 
 func _process(delta):
-	if player_health == 2:
+	if player_health <= 2:
 		$HUD/Health/Heart3/Full.visible = false
-	if player_health == 1:
+	if player_health <= 1:
 		$HUD/Health/Heart2/Full.visible = false
 	# If the player's out of health, play blackout animation
 	if player_health <= 0:
@@ -44,4 +43,16 @@ func _on_Helmet_collected():
 
 
 func _on_SFXTransition_finished():
+	get_tree().change_scene("res://Levels/MainRoom.tscn")
+
+
+func _on_Entrance_body_entered(body):
+	Input.action_release("move_down")
+	Input.action_release("move_left")
+	Input.action_release("move_right")
+	Input.action_release("move_up")
+	$SFXTransition2.play()
+
+
+func _on_SFXTransition2_finished():
 	get_tree().change_scene("res://Levels/MainRoom.tscn")

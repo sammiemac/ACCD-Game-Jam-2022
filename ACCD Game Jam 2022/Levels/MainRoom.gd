@@ -1,8 +1,5 @@
 extends Node2D
 
-
-
-
 func _ready():
 	$KeyItems/BodySuit.visible = false
 	$KeyItems/AirTank.visible = false
@@ -47,3 +44,38 @@ func _on_Music_finished():
 
 func _on_SFXNote_finished():
 	get_tree().change_scene("res://Screens/End.tscn")
+
+
+func _on_SpikeDoor_body_entered(body):
+	Input.action_release("move_down")
+	Input.action_release("move_left")
+	Input.action_release("move_right")
+	Input.action_release("move_up")
+	$SFXTransitionSpike.play()
+
+func _on_DoorDoor_body_entered(body):
+	Input.action_release("move_down")
+	Input.action_release("move_left")
+	Input.action_release("move_right")
+	Input.action_release("move_up")
+	$SFXTransitionDoor.play()
+
+
+func _on_BoxDoor_body_entered(body):
+	Input.action_release("move_down")
+	Input.action_release("move_left")
+	Input.action_release("move_right")
+	Input.action_release("move_up")
+	$SFXTransitionBox.play()
+
+
+func _on_SFXTransitionSpike_finished():
+	get_tree().change_scene("res://Levels/SpikeRoom.tscn")
+
+
+func _on_SFXTransitionDoor_finished():
+	get_tree().change_scene("res://Levels/DoorRoom.tscn")
+
+
+func _on_SFXTransitionBox_finished():
+	get_tree().change_scene("res://Levels/BoxRoom.tscn")

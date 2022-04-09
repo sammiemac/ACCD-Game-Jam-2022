@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Levels/MainRoom.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/TileFloor.tres" type="TileSet" id=2]
 [ext_resource path="res://Tiles/TileTunnel.tres" type="TileSet" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Tiles/TileWallNEW.tres" type="TileSet" id=5]
+[ext_resource path="res://Levels/TransitionArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Decor/coral7.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Decor/coral4.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Decor/coral1.png" type="Texture" id=8]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Item/AirTank.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Assets/Item/BodySuit.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Item/Helmet.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Sounds/SFX/scene_transition.wav" type="AudioStream" id=24]
 
 [node name="MainRoom" type="Node2D"]
 script = ExtResource( 1 )
@@ -202,6 +203,32 @@ collectable = false
 [node name="Helmet" parent="KeyItems" instance=ExtResource( 23 )]
 position = Vector2( 4784, 4560 )
 collectable = false
+
+[node name="TransitionAreas" type="Node2D" parent="."]
+
+[node name="SpikeDoor" parent="TransitionAreas" instance=ExtResource( 5 )]
+position = Vector2( 3064, -232 )
+
+[node name="SFXTransitionSpike" type="AudioStreamPlayer" parent="TransitionAreas"]
+stream = ExtResource( 24 )
+
+[node name="DoorDoor" parent="TransitionAreas" instance=ExtResource( 5 )]
+position = Vector2( -240, 1592 )
+
+[node name="SFXTransitionDoor" type="AudioStreamPlayer" parent="TransitionAreas"]
+stream = ExtResource( 24 )
+
+[node name="BoxDoor" parent="TransitionAreas" instance=ExtResource( 5 )]
+position = Vector2( 6736, 1064 )
+
+[node name="SFXTransitionBox" type="AudioStreamPlayer" parent="TransitionAreas"]
+stream = ExtResource( 24 )
 [connection signal="finished" from="SFXAmbience" to="." method="_on_SFXAmbience_finished"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="finished" from="SFXNote" to="." method="_on_SFXNote_finished"]
+[connection signal="body_entered" from="TransitionAreas/SpikeDoor" to="." method="_on_SpikeDoor_body_entered"]
+[connection signal="finished" from="TransitionAreas/SFXTransitionSpike" to="." method="_on_SFXTransitionSpike_finished"]
+[connection signal="body_entered" from="TransitionAreas/DoorDoor" to="." method="_on_DoorDoor_body_entered"]
+[connection signal="finished" from="TransitionAreas/SFXTransitionDoor" to="." method="_on_SFXTransitionDoor_finished"]
+[connection signal="body_entered" from="TransitionAreas/BoxDoor" to="." method="_on_BoxDoor_body_entered"]
+[connection signal="finished" from="TransitionAreas/SFXTransitionBox" to="." method="_on_SFXTransitionBox_finished"]
